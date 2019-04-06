@@ -52,4 +52,9 @@ private Button signoutBtn;
         startActivity(intent);
         finish();
     }
+
+    public void nextActivity(View view) {
+        Intent intent=new Intent(Userprofile.this,TourList.class);
+        startActivity(intent);
+    }
 }
