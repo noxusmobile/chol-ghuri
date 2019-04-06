@@ -51,10 +51,12 @@ public class LocationMap extends FragmentActivity implements OnMapReadyCallback 
             public void onMapClick(LatLng latLng) {
                 try {
                     List<Address> addresses =geocoder.getFromLocation(latLng.latitude,latLng.longitude,1);
+                    mMap.addMarker(new MarkerOptions().position(latLng)
+                            .title(latLng.latitude+ " ," +latLng.longitude)
+                            .snippet(addresses.get(0).getAddressLine(0)));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                mMap.addMarker(new MarkerOptions().position(latLng).title(latLng.latitude+", " +latLng.longitude));
 
 
             }
