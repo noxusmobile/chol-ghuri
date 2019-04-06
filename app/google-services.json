@@ -1,0 +1,44 @@
+{
+  "project_info": {
+    "project_number": "980326995402",
+    "firebase_url": "https://chol-ghuri.firebaseio.com",
+    "project_id": "chol-ghuri",
+    "storage_bucket": "chol-ghuri.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:980326995402:android:fcac2c9761b2c99d",
+        "android_client_info": {
+          "package_name": "com.example.cholghuri"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "980326995402-6v567lq58ki25ir2evk0j9525rnhfca0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cholghuri",
+            "certificate_hash": "15f2367031fba3c95d22a1d3a4b619f8349e0f8c"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyUbKIx5b9J-4wl24amMBRnSwlwW2gCbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "980326995402-svs8j3pk0redrpiqcshdhp311p8fbfj5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
