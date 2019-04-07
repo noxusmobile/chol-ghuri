@@ -5,6 +5,7 @@ import android.location.Geocoder;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,7 +27,7 @@ public class LocationMap extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_map);
 
-        geocoder=new Geocoder(this);
+        geocoder=new Geocoder(LocationMap.this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -40,9 +41,9 @@ public class LocationMap extends FragmentActivity implements OnMapReadyCallback 
         mMap = googleMap;
 
         // Add a marker in Sydney and move the camera
-        LatLng dhaka = new LatLng(23.751157, 90.393499);
-        mMap.addMarker(new MarkerOptions().position(dhaka).title("Marker in Dhaka"));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(dhaka, 14));
+        LatLng sydney = new LatLng(23.751157, 90.393499);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Dhaka"));
+        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney, 14));
         mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mMap.getUiSettings().setZoomControlsEnabled(true);
 
@@ -50,13 +51,14 @@ public class LocationMap extends FragmentActivity implements OnMapReadyCallback 
             @Override
             public void onMapClick(LatLng latLng) {
                 try {
-                    List<Address> addresses =geocoder.getFromLocation(latLng.latitude,latLng.longitude,1);
-                    mMap.addMarker(new MarkerOptions().position(latLng)
-                            .title(latLng.latitude+ " ," +latLng.longitude)
-                            .snippet(addresses.get(0).getAddressLine(0)));
+                    List<Address> address= geocoder.getFromLocation(latLng.latitude,latLng.longitude,1);
+                    mMap.addMarker(new MarkerOptions().position(latLng).title(latLng.latitude+", "+latLng.longitude)
+                            .snippet(address.get(0).getAddressLine(0)));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+
+
 
 
             }
