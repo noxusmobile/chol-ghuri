@@ -21,11 +21,19 @@
             "package_name": "com.example.cholghuri",
             "certificate_hash": "15f2367031fba3c95d22a1d3a4b619f8349e0f8c"
           }
+        },
+        {
+          "client_id": "980326995402-19nsdq6nr2i7ofsr6st0snlkrkimamk6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.cholghuri",
+            "certificate_hash": "637bf645e87d33c75fdf6ce65dc270d95f283b09"
+          }
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCyUbKIx5b9J-4wl24amMBRnSwlwW2gCbU"
+          "current_key": "AIzaSyDPoqg-vx8Bq6WfrRTjGDEwbVSgBvy9dyk"
         }
       ],
       "services": {

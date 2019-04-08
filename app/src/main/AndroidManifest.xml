@@ -26,6 +26,7 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
+        <!-- Important library Update for GOOGLE MAP-->
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" />
