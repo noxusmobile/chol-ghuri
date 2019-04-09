@@ -63,7 +63,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#d9ffec"
+        "color": "#d6fce9"
       }
     ]
   },
@@ -72,7 +72,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#f0ceca"
+        "color": "#edccc8"
       }
     ]
   },
@@ -90,7 +90,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#c1d5c2"
+        "color": "#bfd2c0"
       }
     ]
   },
@@ -99,7 +99,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#008040"
+        "color": "#006f37"
       }
     ]
   },
@@ -108,7 +108,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#faf3d8"
+        "color": "#f7f0d5"
       }
     ]
   },
@@ -117,7 +117,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#770000"
+        "color": "#aa0000"
       }
     ]
   },
@@ -126,7 +126,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#81a978"
+        "color": "#7fa777"
       }
     ]
   },
@@ -136,15 +136,6 @@
     "stylers": [
       {
         "color": "#ffffff"
-      }
-    ]
-  },
-  {
-    "featureType": "road.arterial",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#eaeaea"
       }
     ]
   },
@@ -171,7 +162,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#c0c0c0"
+        "color": "#a7b4bd"
       }
     ]
   },
@@ -180,7 +171,7 @@
     "elementType": "geometry.stroke",
     "stylers": [
       {
-        "color": "#535353"
+        "color": "#d8d8d8"
       }
     ]
   },
@@ -190,15 +181,6 @@
     "stylers": [
       {
         "color": "#616161"
-      }
-    ]
-  },
-  {
-    "featureType": "road.local",
-    "elementType": "geometry.stroke",
-    "stylers": [
-      {
-        "color": "#eaeaea"
       }
     ]
   },
@@ -243,10 +225,7 @@
     "elementType": "geometry.fill",
     "stylers": [
       {
-        "color": "#bbdbf4"
-      },
-      {
-        "weight": 2
+        "color": "#b9d8f1"
       }
     ]
   },
@@ -255,16 +234,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#004080"
-      }
-    ]
-  },
-  {
-    "featureType": "water",
-    "elementType": "labels.text.stroke",
-    "stylers": [
-      {
-        "color": "#80ffff"
+        "color": "#3c3cff"
       }
     ]
   }
