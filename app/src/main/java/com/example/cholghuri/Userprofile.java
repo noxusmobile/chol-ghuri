@@ -18,18 +18,12 @@ private Button signoutBtn;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userprofile);
         mAuth=FirebaseAuth.getInstance();
-        signoutBtn=findViewById(R.id.signoutBtn);
-       signoutBtn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               signoutfun();
-           }
 
 
-       });
     }
 
-   /* @Override
+
+  @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);
         return super.onCreateOptionsMenu(menu);
@@ -44,14 +38,8 @@ private Button signoutBtn;
             finish();
         }
         return super.onOptionsItemSelected(item);
-    }*/
-
-    private void signoutfun() {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-        startActivity(intent);
-        finish();
     }
+
 
     public void nextActivity(View view) {
         Intent intent=new Intent(Userprofile.this,TourList.class);
