@@ -11,34 +11,25 @@ import android.widget.Button;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Userprofile extends AppCompatActivity {
-private FirebaseAuth mAuth;
-private Button signoutBtn;
+    private FirebaseAuth mAuth;
+    private Button signoutBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userprofile);
         mAuth=FirebaseAuth.getInstance();
-<<<<<<< HEAD
         signoutBtn=findViewById(R.id.signoutBtn);
-       /*signoutBtn.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View view) {
-               signoutfun();
-           }
+        signoutBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                signoutfun();
+            }
 
 
-       });*/
+        });
     }
 
-    @Override
-=======
-
-
-    }
-
-
-  @Override
->>>>>>> origin/master
+   /* @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_layout,menu);
         return super.onCreateOptionsMenu(menu);
@@ -53,21 +44,15 @@ private Button signoutBtn;
             finish();
         }
         return super.onOptionsItemSelected(item);
-<<<<<<< HEAD
-    }
+    }*/
 
-  /*  private void signoutfun() {
+    private void signoutfun() {
         FirebaseAuth.getInstance().signOut();
         Intent intent=new Intent(getApplicationContext(),MainActivity.class);
         startActivity(intent);
         finish();
     }
-*/
-=======
-    }
 
-
->>>>>>> origin/master
     public void nextActivity(View view) {
         Intent intent=new Intent(Userprofile.this,TourList.class);
         startActivity(intent);
