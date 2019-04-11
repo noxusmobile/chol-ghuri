@@ -45,6 +45,7 @@ public class AddTour extends Activity {
 
         initialize();
         onclick();
+        
     }
 
 
