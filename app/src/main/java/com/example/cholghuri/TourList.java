@@ -22,7 +22,7 @@ public class TourList extends AppCompatActivity {
 
     private RecyclerView tourRecycler;
     private FirebaseDatabase firebaseDatabase;
-    private List<Tour> tourList;
+private List<Tour> tourList;
     private TourAdapter tourAdapter;
 
     @Override
@@ -31,8 +31,8 @@ public class TourList extends AppCompatActivity {
         setContentView(R.layout.activity_tour_list);
 
         initialize();
-        //initRecyclerView();
-        //getDataFromDB();
+        initRecyclerView();
+        getDataFromDB();
     }
 
 
@@ -42,14 +42,14 @@ public class TourList extends AppCompatActivity {
 
         tourList = new ArrayList<>();
     }
-/*
+
 
     private void initRecyclerView() {
         tourRecycler.setLayoutManager(new LinearLayoutManager(this));
         tourAdapter = new TourAdapter(tourList);
         tourRecycler.setAdapter(tourAdapter);
     }
-*/
+
 
     public void addTour(View view) {
 
@@ -57,9 +57,10 @@ public class TourList extends AppCompatActivity {
         startActivity(intent);
     }
 
- /*   private void getDataFromDB() {
+  private void getDataFromDB() {
 
-        DatabaseReference tourDB = firebaseDatabase.getReference().child("Tour");
+       DatabaseReference tourDB = firebaseDatabase.getReference().child("Tour");
+       // DatabaseReference tourDB = firebaseDatabase.getReference();
 
         tourDB.addValueEventListener(new ValueEventListener() {
             @Override
@@ -71,12 +72,12 @@ public class TourList extends AppCompatActivity {
                     for (DataSnapshot data : dataSnapshot.getChildren()) {
                         Tour tour = data.getValue(Tour.class);
                         tourList.add(tour);
-                       // tourAdapter.notifyDataSetChanged();
+                        tourAdapter.notifyDataSetChanged();
 
                     }
 
                 } else {
-                    Toast.makeText(Trips.this, "Empty database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TourList.this, "Empty database", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -84,9 +85,23 @@ public class TourList extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
+                Toast.makeText(TourList.this, ""+databaseError, Toast.LENGTH_SHORT).show();
+
             }
         });
+      /* tourDB.addValueEventListener(new ValueEventListener() {
+           @Override
+           public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+               if(dataSnapshot.exists()){
+                   Toast.makeText(TourList.this, "exists", Toast.LENGTH_SHORT).show();
+               }
+           }
 
+           @Override
+           public void onCancelled(@NonNull DatabaseError databaseError) {
+
+           }
+       });*/
     }
-*/
+
 }
