@@ -16,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AddTour"></activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".AddTour" />
         <activity android:name=".TourList" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -26,10 +27,11 @@
              sign the APK for publishing.
              You can define the keys for the debug and release targets in src/debug/ and src/release/.
         -->
-        <!-- Important library Update for GOOGLE MAP-->
+        <!-- Important library Update for GOOGLE MAP -->
         <uses-library
             android:name="org.apache.http.legacy "
             android:required="false" />
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
@@ -37,9 +39,10 @@
         <activity
             android:name=".LocationMap"
             android:label="@string/title_activity_location_map" />
-        <activity android:name=".Userprofile" android:theme="@style/AppTheme2"
-            />
-        <activity android:name=".MainActivity">
+        <activity
+            android:name=".Userprofile"
+            android:theme="@style/AppTheme2" />
+        <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
