@@ -47,4 +47,3 @@ apply plugin: 'com.google.gms.google-services'
 
 //to disable version check so com.google.gms.google-services will not check version
 com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
-
