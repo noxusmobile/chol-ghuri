@@ -86,9 +86,9 @@ public class LocationMap extends FragmentActivity implements OnMapReadyCallback 
         });
     }
 
-//    public BitmapDescriptor getMarkerIcon(String color) {
-//        float[] colorCode= new float[3];
-//        Color.colorToHSV(Color.parseColor(color),colorCode);
-//        return BitmapDescriptorFactory.defaultMarker(colorCode[0]);
-//    }
+    public BitmapDescriptor getMarkerIcon(String color) {
+        float[] colorCode= new float[3];
+        Color.colorToHSV(Color.parseColor(color),colorCode);
+        return BitmapDescriptorFactory.defaultMarker(colorCode[0]);
+    }
 }
