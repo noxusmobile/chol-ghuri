@@ -1,5 +1,7 @@
 package com.example.cholghuri;
 
+import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -14,9 +16,11 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
 
     private List<Tour> tourList;
+    private Context context;
 
-    public TourAdapter(List<Tour> tourList) {
+    public TourAdapter(Context context,List<Tour> tourList) {
         this.tourList = tourList;
+        this.context = context;
     }
 
 
@@ -33,13 +37,22 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
 
-        Tour currentTour = tourList.get(i);
+        final Tour currentTour = tourList.get(i);
         viewHolder.tripNameTV.setText(currentTour.getTourTitle());
         viewHolder.tripDescriptionTV.setText(currentTour.getTourDetails());
-       String temp = String.valueOf(currentTour.getTourAmount());
-       /* viewHolder.tripNameTV.setText("123");
-        viewHolder.tripDescriptionTV.setText("678");*/
+        String temp = String.valueOf(currentTour.getTourAmount());
         viewHolder.tripAmountTV.setText(temp);
+
+        viewHolder.addExpenseActivityBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context,AddExpense.class);
+                intent.putExtra("tourID",currentTour.getTourID());
+                context.startActivity(intent);
+
+            }
+        });
 
     }
 
@@ -51,7 +64,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tripNameTV, tripDescriptionTV, tripAmountTV;
-        private Button tripDetailsBTN,tripMomentsBTN,tripDeleteBTN;
+        private Button tripDetailsBTN,tripMomentsBTN,tripDeleteBTN,addExpenseActivityBTN;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -61,7 +74,10 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             tripDetailsBTN = itemView.findViewById(R.id.tripDetailsBTN);
             tripMomentsBTN = itemView.findViewById(R.id.tripMomentsBTN);
             tripDeleteBTN = itemView.findViewById(R.id.tripDeleteBTN);
+            addExpenseActivityBTN=itemView.findViewById(R.id.addExpenseActivityBTN);
 
         }
     }
+
+
 }

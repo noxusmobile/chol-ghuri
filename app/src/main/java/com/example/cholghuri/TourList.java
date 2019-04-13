@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,14 +22,18 @@ import java.util.List;
 public class TourList extends AppCompatActivity {
 
     private RecyclerView tourRecycler;
+    private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
-private List<Tour> tourList;
+    private List<Tour> tourList;
     private TourAdapter tourAdapter;
+    private String userID;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_list);
+
+
 
         initialize();
         initRecyclerView();
@@ -37,16 +42,17 @@ private List<Tour> tourList;
 
 
     private void initialize() {
+        firebaseAuth  = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         tourRecycler = findViewById(R.id.tourRecycler);
-
+        userID = firebaseAuth.getCurrentUser().getUid();
         tourList = new ArrayList<>();
     }
 
 
     private void initRecyclerView() {
         tourRecycler.setLayoutManager(new LinearLayoutManager(this));
-        tourAdapter = new TourAdapter(tourList);
+        tourAdapter = new TourAdapter(this.getApplicationContext(), tourList);
         tourRecycler.setAdapter(tourAdapter);
     }
 
@@ -59,7 +65,7 @@ private List<Tour> tourList;
 
   private void getDataFromDB() {
 
-       DatabaseReference tourDB = firebaseDatabase.getReference().child("Tour");
+       DatabaseReference tourDB = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
        // DatabaseReference tourDB = firebaseDatabase.getReference();
 
         tourDB.addValueEventListener(new ValueEventListener() {

@@ -33,6 +33,7 @@ public class AddTour extends Activity {
     SimpleDateFormat dateSDF = new SimpleDateFormat("dd MMMM yyyy");
     private  double selectedDateinFromMS,selectedDateinToMS;
     private Calendar calendar;
+    private String userID;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
@@ -42,6 +43,8 @@ public class AddTour extends Activity {
         firebaseauth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         calendar = Calendar.getInstance();
+
+        userID = firebaseauth.getCurrentUser().getUid();
 
         initialize();
         onclick();
@@ -82,8 +85,17 @@ public class AddTour extends Activity {
                 int TourAmount = Integer.valueOf(temp);
 
 
+                /*=======Validation under construction============*/
+
+/*
+                validate(TourTitle,TourDetails,temp,selectedDateinFromMS,selectedDateinToMS);
+*/
+                /*=======Validation under construction============*/
+
 
                 sendTourDataToDatabase(new Tour(TourTitle,TourDetails,TourAmount,selectedDateinFromMS,selectedDateinToMS));
+
+               // Toast.makeText(AddTour.this, ""+userID, Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -107,6 +119,29 @@ public class AddTour extends Activity {
 
     }
 
+
+    /*=======Validation function under construction============*/
+/*
+    private boolean validate(String tourTitle, String tourDetails, String tourAmount, double selectedDateinFromMS, double selectedDateinToMS) {
+
+        if(!tourTitle.contains("")&&!tourDetails.contains("")&&!tourAmount.contains("").!tou){
+
+            return true;
+
+
+        }
+        else{
+
+            return false;
+
+        }
+
+
+    }
+*/
+
+    /*=======Validation function under construction============*/
+
     private void sendTourDataToDatabase(Tour tour) {
 
 
@@ -116,7 +151,10 @@ public class AddTour extends Activity {
         userMap.put("TourAmount",tourAmount);
 */
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("Tour");
+
+
+
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
         String Id = databaseReference.push().getKey();
 
         tour.setTourID(Id);
@@ -126,7 +164,7 @@ public class AddTour extends Activity {
 
                 if(task.isSuccessful()){
 
-                    Toast.makeText(AddTour.this, "complete", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(AddTour.this, "complete", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -152,7 +190,7 @@ public class AddTour extends Activity {
 
                 selectedDateinFromMS = date.getTime();
 
-                  Toast.makeText(getApplicationContext(), ""+selectedDateinFromMS, Toast.LENGTH_SHORT).show();
+                  //Toast.makeText(getApplicationContext(), ""+selectedDateinFromMS, Toast.LENGTH_SHORT).show();
 
                 fromDateTourBTN.setText(dateSDF.format(date));
 
@@ -190,7 +228,7 @@ public class AddTour extends Activity {
 
                 selectedDateinToMS = date.getTime();
 
-                 Toast.makeText(getApplicationContext(), ""+selectedDateinToMS, Toast.LENGTH_SHORT).show();
+                 //Toast.makeText(getApplicationContext(), ""+selectedDateinToMS, Toast.LENGTH_SHORT).show();
 
                 toDateTourBTN.setText(dateSDF.format(date));
 
