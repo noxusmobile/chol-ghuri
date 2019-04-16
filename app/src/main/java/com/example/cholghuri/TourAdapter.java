@@ -54,6 +54,36 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             }
         });
 
+        viewHolder.tripUpdateBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent = new Intent(context,UpdateTour.class);
+                intent.putExtra("tourID",currentTour.getTourID());
+                intent.putExtra("tourTitle",currentTour.getTourTitle());
+                intent.putExtra("tourDetails",currentTour.getTourDetails());
+                intent.putExtra("tourAmount",currentTour.getTourAmount());
+                intent.putExtra("tourStartDate",currentTour.getTourStratDate());
+                intent.putExtra("tourEndDate",currentTour.getTourEndDate());
+
+                context.startActivity(intent);
+
+
+
+            }
+        });
+
+        viewHolder.tripDeleteBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+
+
+
+
     }
 
     @Override
@@ -64,7 +94,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tripNameTV, tripDescriptionTV, tripAmountTV;
-        private Button tripDetailsBTN,tripMomentsBTN,tripDeleteBTN,addExpenseActivityBTN;
+        private Button tripDetailsBTN,tripMomentsBTN,tripDeleteBTN,tripUpdateBTN,addExpenseActivityBTN;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -74,6 +104,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             tripDetailsBTN = itemView.findViewById(R.id.tripDetailsBTN);
             tripMomentsBTN = itemView.findViewById(R.id.tripMomentsBTN);
             tripDeleteBTN = itemView.findViewById(R.id.tripDeleteBTN);
+            tripUpdateBTN=itemView.findViewById(R.id.tripUpdateBTN);
             addExpenseActivityBTN=itemView.findViewById(R.id.addExpenseActivityBTN);
 
         }

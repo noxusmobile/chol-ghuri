@@ -6,15 +6,15 @@ public class Tour {
     private String tourTitle;
     private String tourDetails;
     private int tourAmount;
-    private double tourStratDate;
-    private double tourEndDate;
+    private long tourStratDate;
+    private long tourEndDate;
 
 
 
     public Tour() {
     }
 
-    public Tour(String tourTitle, String tourDetails, int tourAmount, double tourStratDate, double tourEndDate) {
+    public Tour(String tourTitle, String tourDetails, int tourAmount, long tourStratDate, long tourEndDate) {
         this.tourTitle = tourTitle;
         this.tourDetails = tourDetails;
         this.tourAmount = tourAmount;
@@ -22,7 +22,7 @@ public class Tour {
         this.tourEndDate = tourEndDate;
     }
 
-    public Tour(String tourID, String tourTitle, String tourDetails, int tourAmount, double tourStratDate, double tourEndDate) {
+    public Tour(String tourID, String tourTitle, String tourDetails, int tourAmount, long tourStratDate, long tourEndDate) {
         this.tourID = tourID;
         this.tourTitle = tourTitle;
         this.tourDetails = tourDetails;
@@ -47,11 +47,11 @@ public class Tour {
         return tourAmount;
     }
 
-    public double getTourStratDate() {
+    public long getTourStratDate() {
         return tourStratDate;
     }
 
-    public double getTourEndDate() {
+    public long getTourEndDate() {
         return tourEndDate;
     }
 

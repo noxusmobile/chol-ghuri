@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".UpdateTour"
+    android:orientation="vertical">
+    <EditText
+        android:id="@+id/addTourTitleET"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Enter Tour Title here"
+        android:inputType="text"
+        android:paddingRight="80dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:background="#ffff"/>
+
+    <EditText
+        android:id="@+id/addTourDetailsET"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Enter Tour Details here"
+        android:inputType="text"
+        android:paddingRight="80dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:background="#ffff"/>
+
+    <EditText
+        android:id="@+id/addTourAmountET"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="Enter Tour Budget here"
+        android:inputType="number"
+        android:paddingRight="80dp"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:background="#ffff"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2"
+        android:layout_marginTop="40dp"
+        android:layout_marginHorizontal="20dp">
+
+        <Button
+            android:id="@+id/fromDateTourBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="From date"
+            android:textAllCaps="false"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/toDateTourBTN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="To date"
+            android:textAllCaps="false"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+    <Button
+
+        android:id="@+id/updateTourBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="50dp"
+        android:text="Update Tour"
+        android:textAllCaps="false"
+        />
+
+</LinearLayout>

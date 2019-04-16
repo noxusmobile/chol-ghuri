@@ -1,12 +1,13 @@
 package com.example.cholghuri;
 
-import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
-import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -23,10 +24,10 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
-public class AddTour extends Activity {
+public class UpdateTour extends AppCompatActivity {
 
     private EditText addTourTitleET, addTourDetailsET, addTourAmountET;
-    private Button addTourBTN,fromDateTourBTN ,toDateTourBTN;
+    private Button updateTourBTN,fromDateTourBTN ,toDateTourBTN;
     private FirebaseAuth firebaseauth;
     private FirebaseDatabase firebaseDatabase;
     SimpleDateFormat dateAndtimeSDF = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -34,12 +35,13 @@ public class AddTour extends Activity {
     private  long selectedDateinFromMS,selectedDateinToMS;
     private Calendar calendar;
     private String userID;
+    private  String tourID;
 
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_tour);
+        setContentView(R.layout.activity_update_tour);
         firebaseauth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         calendar = Calendar.getInstance();
@@ -48,9 +50,47 @@ public class AddTour extends Activity {
 
         initialize();
         onclick();
+        getdata();
 
     }
 
+    private void getdata() {
+
+
+        Intent intent = getIntent();
+        tourID = intent.getStringExtra("tourID");
+
+
+        String tourTitle = intent.getStringExtra("tourTitle");
+        String tourDetails = intent.getStringExtra("tourDetails");
+        int tourAmount = intent.getIntExtra("tourAmount",0);
+        long tourStartDate = intent.getLongExtra("tourStartDate",-1);
+        long tourEndDate = intent.getLongExtra("tourEndDate",-1);
+
+
+
+        String temp = String.valueOf(tourAmount);
+
+        addTourTitleET.setText(tourTitle);
+        addTourDetailsET.setText(tourDetails);
+        addTourAmountET.setText(temp);
+        selectedDateinFromMS = tourStartDate;
+
+
+        long temp1 =  tourStartDate;
+        Date startDate = new Date(temp1);
+        fromDateTourBTN.setText(dateSDF.format(startDate));
+
+        long temp2=  tourEndDate;
+        Date endDate = new Date(temp2);
+        toDateTourBTN.setText(dateSDF.format(endDate));
+
+
+
+
+
+
+    }
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -66,7 +106,7 @@ public class AddTour extends Activity {
         toDateTourBTN = findViewById(R.id.toDateTourBTN);
 
 
-        addTourBTN=findViewById(R.id.addTourBTN);
+        updateTourBTN=findViewById(R.id.updateTourBTN);
 
 
 
@@ -76,7 +116,7 @@ public class AddTour extends Activity {
 
     private void onclick() {
 
-        addTourBTN.setOnClickListener(new View.OnClickListener() {
+        updateTourBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String TourTitle = addTourTitleET.getText().toString();
@@ -154,11 +194,11 @@ public class AddTour extends Activity {
 
 
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
-        String Id = databaseReference.push().getKey();
+        DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList").child(tourID);
 
-        tour.setTourID(Id);
-        databaseReference.child(Id).setValue(tour).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+        tour.setTourID(tourID);
+        databaseReference.setValue(tour).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
