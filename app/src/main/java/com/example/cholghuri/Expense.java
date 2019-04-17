@@ -2,6 +2,7 @@ package com.example.cholghuri;
 
 public class Expense {
 
+    private String tourID;
     private String expenseID;
     private String expenseTitle;
     private String expenseDetails;
@@ -23,6 +24,10 @@ public class Expense {
         this.expenseAmount = expenseAmount;
     }
 
+    public String getTourID() {
+        return tourID;
+    }
+
     public String getExpenseID() {
         return expenseID;
     }
@@ -41,5 +46,9 @@ public class Expense {
 
     public void setExpenseID(String expenseID) {
         this.expenseID = expenseID;
+    }
+
+    public void setTourID(String tourID) {
+        this.tourID = tourID;
     }
 }

@@ -20,7 +20,9 @@
         <activity android:name=".AddExpense" />
         <activity android:name=".MainActivity" />
         <activity android:name=".AddTour" />
-        <activity android:name=".TourList" />
+        <activity
+            android:name=".TourList"
+            android:theme="@style/AppTheme" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -43,8 +45,10 @@
             android:label="@string/title_activity_location_map" />
         <activity
             android:name=".Userprofile"
-            android:theme="@style/AppTheme2" />
-        <activity android:name=".SplashScreen">
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".SplashScreen"
+            android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

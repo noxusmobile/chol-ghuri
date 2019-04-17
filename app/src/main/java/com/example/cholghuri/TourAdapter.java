@@ -1,6 +1,8 @@
 package com.example.cholghuri;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -9,10 +11,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.List;
 
 public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
+
+    private FirebaseDatabase firebaseDatabase;
+    private FirebaseAuth firebaseAuth;
+    private String userID;
 
 
     private List<Tour> tourList;
@@ -29,6 +40,10 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
 
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
+        userID = firebaseAuth.getCurrentUser().getUid();
 
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.tour_list_layout, viewGroup, false);
         return new ViewHolder(itemView);
@@ -54,6 +69,40 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             }
         });
 
+
+        /*viewHolder.tripDeleteBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(context, "asdsadsadasd", Toast.LENGTH_SHORT).show();
+            }
+        });
+*/
+        viewHolder.tripDeleteBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alert = new AlertDialog.Builder(context);
+                alert.setTitle("Delete Entry");
+                alert.setMessage("Are you sure you want to delete?");
+                alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
+                        databaseReference.removeValue();
+                    }
+
+                });
+                alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+                alert.show();
+
+            }
+        });
+
         viewHolder.tripUpdateBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -73,12 +122,6 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             }
         });
 
-        viewHolder.tripDeleteBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
 
 
 
