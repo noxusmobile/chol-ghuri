@@ -52,7 +52,7 @@ public class TourList extends AppCompatActivity {
 
     private void initRecyclerView() {
         tourRecycler.setLayoutManager(new LinearLayoutManager(this));
-        tourAdapter = new TourAdapter(this.getApplicationContext(), tourList);
+        tourAdapter = new TourAdapter(TourList.this, tourList);
         tourRecycler.setAdapter(tourAdapter);
     }
 

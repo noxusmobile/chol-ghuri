@@ -88,7 +88,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                     public void onClick(DialogInterface dialog, int which) {
 
                         DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
-                        databaseReference.removeValue();
+                      databaseReference.child(currentTour.getTourID()).removeValue();
                     }
 
                 });
