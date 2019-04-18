@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button btnLogin,btnSignup,button3,locationMapBtn;
     private EditText editText,editText2;
+    private TextView textView5;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         btnSignup=(Button)findViewById(R.id.btnSignup);
         editText=findViewById(R.id.editText);
         editText2=findViewById(R.id.editText2);
+        textView5=findViewById(R.id.textView5);
         button3=findViewById(R.id.button3);
         locationMapBtn=findViewById(R.id.locationMapBtn);
 
@@ -44,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,SignUpActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -55,7 +59,21 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+        textView5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                forgetpassIN();
+            }
+        });
     }
+
+    private void forgetpassIN() {
+        Intent intent=new Intent(MainActivity.this,ResetPassword.class);
+        startActivity(intent);
+        finish();
+
+    }
+
     private void signIn() {
         String  password=editText2.getText().toString().trim();
         String  email=editText.getText().toString().trim();
