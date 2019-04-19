@@ -23,6 +23,7 @@ import java.text.ParseException;
 import java.util.Calendar;
 import java.util.Date;
 
+@RequiresApi(api = Build.VERSION_CODES.N)
 public class AddTour extends Activity {
 
     private EditText addTourTitleET, addTourDetailsET, addTourAmountET;
@@ -203,7 +204,7 @@ public class AddTour extends Activity {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, day);
-
+        datePickerDialog.getDatePicker().setMinDate(System.currentTimeMillis());
         datePickerDialog.show();
 
     }
@@ -243,7 +244,7 @@ public class AddTour extends Activity {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, day);
-        // datePickerDialog.getDatePicker().setMinDate(selectedDateinFromMS);
+         datePickerDialog.getDatePicker().setMinDate(selectedDateinFromMS);
         datePickerDialog.show();
 
 
