@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 public class SignUpActivity extends AppCompatActivity {
 
     private Button btnLogin,btnSignup,button3;
-    private EditText editText,editText2;
+    private EditText editText,editText2,editText3;
     private FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +31,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignup=(Button)findViewById(R.id.btnSignup);
         editText=findViewById(R.id.editText);
         editText2=findViewById(R.id.editText2);
+        editText3=findViewById(R.id.editText3);
 
         button3=findViewById(R.id.button3);
 
@@ -52,7 +53,9 @@ button3.setOnClickListener(new View.OnClickListener() {
 
     private void userregister() {
     String  password=editText2.getText().toString().trim();
+    String  confpassword=editText3.getText().toString().trim();
     String  email=editText.getText().toString().trim();
+  /*  String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";*/
 
         if(email.isEmpty())
         {
@@ -67,7 +70,12 @@ button3.setOnClickListener(new View.OnClickListener() {
             editText.requestFocus();
             return;
         }
-
+     /*   if(!email.matches(emailPattern))
+        {
+            editText.setError("Enter a valid email address");
+            editText.requestFocus();
+            return;
+        }*/
         //checking the validity of the password
         if(password.isEmpty())
         {
@@ -77,8 +85,14 @@ button3.setOnClickListener(new View.OnClickListener() {
         }
         if(password.length()<6)
         {
-            editText2.setError("Length must be atleast ^ ");
+            editText2.setError("Length must be atleast 6 ");
             editText2.requestFocus();
+            return;
+        }
+        else if(!password.equals(confpassword)){
+
+            editText3.setError("password Not matching");
+            editText3.requestFocus();
             return;
         }
   mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
