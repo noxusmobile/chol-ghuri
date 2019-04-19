@@ -64,6 +64,12 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
                 Intent intent = new Intent(context,AddExpense.class);
                 intent.putExtra("tourID",currentTour.getTourID());
+                intent.putExtra("tourTitle",currentTour.getTourTitle());
+                intent.putExtra("tourDetails",currentTour.getTourDetails());
+                intent.putExtra("tourAmount",currentTour.getTourAmount());
+                intent.putExtra("tourStartDate",currentTour.getTourStratDate());
+                intent.putExtra("tourEndDate",currentTour.getTourEndDate());
+
                 context.startActivity(intent);
 
             }

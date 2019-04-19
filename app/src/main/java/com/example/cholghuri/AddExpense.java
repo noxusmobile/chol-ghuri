@@ -1,5 +1,7 @@
 package com.example.cholghuri;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.icu.text.SimpleDateFormat;
 import android.os.Build;
@@ -89,7 +91,7 @@ public class AddExpense extends AppCompatActivity {
 
                //totalExpense=totalExpense+dataSnapshot.child("expenseAmount").getValue(Integer.class);;
 
-               Toast.makeText(AddExpense.this, ""+totalExpense, Toast.LENGTH_SHORT).show();
+               //Toast.makeText(AddExpense.this, ""+totalExpense, Toast.LENGTH_SHORT).show();
            }
 
            @Override
@@ -130,8 +132,36 @@ public class AddExpense extends AppCompatActivity {
                 String temp = addExpenseAmountET.getText().toString();
                 int ExpenseAmount = Integer.valueOf(temp);
 
-                sendExpenseDataToDatabase(new Expense(ExpenseTitle,ExpenseDetails,ExpenseAmount));
 
+                int tempExpense = totalExpense;
+
+                tempExpense = tempExpense + ExpenseAmount;
+                if (tempExpense >= budget) {
+                    AlertDialog.Builder alert = new AlertDialog.Builder(AddExpense.this);
+                    alert.setTitle("Add Expense");
+/*
+                    alert.setMessage("Expense is exciding Budget. Would u like to update Budget ?");
+*/
+                    alert.setMessage("Expense is exciding Budget.");
+                 /*   alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+                        }
+
+                    });*/
+                    alert.setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.cancel();
+                        }
+                    });
+                    alert.show();
+                }
+
+                else {
+                    sendExpenseDataToDatabase(new Expense(ExpenseTitle, ExpenseDetails, ExpenseAmount));
+                }
 
             }
         });
@@ -142,10 +172,15 @@ public class AddExpense extends AppCompatActivity {
     private void sendExpenseDataToDatabase(Expense expense) {
 
 
+
+
+
+
+
         DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList").child(tourID).child("ExpenseList");
         String Id = databaseReference.push().getKey();
 
-        expenseID=Id;
+        expenseID = Id;
 
         expense.setExpenseID(Id);
         expense.setTourID(tourID);
@@ -153,13 +188,15 @@ public class AddExpense extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
 
-                if(task.isSuccessful()){
+                if (task.isSuccessful()) {
 
                     //Toast.makeText(AddTour.this, "complete", Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
-
     }
+
+
+
 }
