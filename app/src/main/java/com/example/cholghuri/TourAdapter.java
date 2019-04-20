@@ -5,8 +5,11 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+
 import android.support.v7.widget.CardView;
+
 import android.support.v7.widget.PopupMenu;
+
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -133,6 +136,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             }
         });*/
 
+
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -223,6 +227,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tripNameTV, tripDescriptionTV, tripAmountTV;
+
         private Button tripDetailsBTN,tripMomentsBTN,tripDeleteBTN,tripUpdateBTN,addExpenseActivityBTN;
         private CardView cardView;
         public ImageView menuecard;
@@ -260,6 +265,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
         public MyMenuItemClickListener() {
         }
+
 
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
