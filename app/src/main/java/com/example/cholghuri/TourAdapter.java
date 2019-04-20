@@ -5,11 +5,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
-<<<<<<< HEAD
 import android.support.v7.widget.CardView;
-=======
 import android.support.v7.widget.PopupMenu;
->>>>>>> 06344287ce3c1919d615075da527abb0d055382c
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MenuInflater;
@@ -136,7 +133,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             }
         });
 
-<<<<<<< HEAD
+
         viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -157,16 +154,13 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
 
 
-
-
-=======
         viewHolder.cardview_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showPopupMenu(viewHolder.cardview_image);
             }
         });
->>>>>>> 06344287ce3c1919d615075da527abb0d055382c
+
 
     }
 
@@ -175,14 +169,14 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         private TextView tripNameTV, tripDescriptionTV, tripAmountTV;
-<<<<<<< HEAD
+
         private Button tripDetailsBTN,tripMomentsBTN,tripDeleteBTN,tripUpdateBTN,addExpenseActivityBTN;
         private CardView cardView;
 
-=======
-        private Button tripDetailsBTN, tripMomentsBTN, tripDeleteBTN, tripUpdateBTN, addExpenseActivityBTN;
+
+        //private Button tripDetailsBTN, tripMomentsBTN, tripDeleteBTN, tripUpdateBTN, addExpenseActivityBTN;
         public ImageView cardview_image;
->>>>>>> 06344287ce3c1919d615075da527abb0d055382c
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             tripNameTV = itemView.findViewById(R.id.tripNameTV);
@@ -191,11 +185,10 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             tripDetailsBTN = itemView.findViewById(R.id.tripDetailsBTN);
             tripMomentsBTN = itemView.findViewById(R.id.tripMomentsBTN);
             tripDeleteBTN = itemView.findViewById(R.id.tripDeleteBTN);
-<<<<<<< HEAD
+
             tripUpdateBTN=itemView.findViewById(R.id.tripUpdateBTN);
             addExpenseActivityBTN=itemView.findViewById(R.id.addExpenseActivityBTN);
             cardView = itemView.findViewById(R.id.cardview);
-=======
             tripUpdateBTN = itemView.findViewById(R.id.tripUpdateBTN);
             addExpenseActivityBTN = itemView.findViewById(R.id.addExpenseActivityBTN);
             cardview_image=itemView.findViewById(R.id.cardview_image);
@@ -221,7 +214,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
         public MyMenuItemClickListener() {
         }
->>>>>>> 06344287ce3c1919d615075da527abb0d055382c
+
 
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
