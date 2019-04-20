@@ -47,8 +47,8 @@ public class TourDetails extends AppCompatActivity {
 
 
         initialize();
-        initRecyclerView();
         getDataFromIntent();
+        initRecyclerView();
         getDataFromDB();
     }
 

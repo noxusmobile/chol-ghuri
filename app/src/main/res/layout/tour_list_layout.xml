@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="10dp"
     android:layout_margin="5dp"
-    android:id="@+id/cardview">
+    app:cardCornerRadius="10dp">
 
     <RelativeLayout
+        android:id="@+id/relative1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#fff"
         android:elevation="4dp"
-        android:padding="16dp"
-        android:id="@+id/relative1">
+        android:padding="16dp">
 
         <ImageView
             android:id="@+id/cardview_image"
@@ -33,8 +33,7 @@
             android:paddingBottom="5dp"
             android:text="Title :"
             android:textSize="24sp"
-            android:textStyle="bold"
-            />
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/tripNameTV"
@@ -53,8 +52,9 @@
             android:layout_below="@+id/tripNameTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Amount :"
-            android:textStyle="bold"
-            android:textColor="#8b8b8b" />
+            android:textColor="#8b8b8b"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tripAmountTV"
             android:layout_width="wrap_content"
@@ -62,29 +62,30 @@
             android:layout_below="@+id/tripNameTV"
             android:layout_toRightOf="@+id/tripAmount"
             android:textColor="#8b8b8b" />
+
         <TextView
             android:id="@+id/tripDescription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Description :"
-            android:textStyle="bold"
             android:layout_below="@+id/tripAmountTV"
-            android:layout_toRightOf="@+id/cardview_image"/>
+            android:layout_toRightOf="@+id/cardview_image"
+            android:text="Description :"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/tripDescriptionTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tripAmountTV"
-            android:layout_toRightOf="@+id/tripDescription"/>
-
+            android:layout_toRightOf="@+id/tripDescription" />
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_below="@+id/tripDescriptionTV"
             android:orientation="horizontal"
-            android:weightSum="5"
-            android:layout_below="@+id/tripDescriptionTV">
+            android:weightSum="5">
 
 
             <Button
@@ -93,8 +94,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Details"
-                android:textAllCaps="false"
-                />
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/tripMomentsBTN"
@@ -102,8 +102,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Moment"
-                android:textAllCaps="false"
-                />
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/tripDeleteBTN"
@@ -111,8 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Delete"
-                android:textAllCaps="false"
-                />
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/tripUpdateBTN"
@@ -120,8 +118,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Update"
-                android:textAllCaps="false"
-                />
+                android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/addExpenseActivityBTN"
@@ -129,13 +126,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Add exp"
-                android:textAllCaps="false"
-                />
+                android:textAllCaps="false" />
 
+            <ImageView
+                android:id="@+id/menuecard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="19dp"
+
+                android:src="@drawable/menuec" />
         </LinearLayout>
 
     </RelativeLayout>
-
 
 
     <!--
@@ -202,10 +205,6 @@
                     />
             </LinearLayout>
         </LinearLayout>-->
-
-
-
-
 
 
 </android.support.v7.widget.CardView>
