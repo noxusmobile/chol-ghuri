@@ -86,6 +86,7 @@
             android:weightSum="5"
             android:layout_below="@+id/tripDescriptionTV">
 
+
             <Button
                 android:id="@+id/tripDetailsBTN"
                 android:layout_width="0dp"

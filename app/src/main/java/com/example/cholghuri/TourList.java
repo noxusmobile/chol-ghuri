@@ -1,13 +1,14 @@
 package com.example.cholghuri;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.Toast;
+import android.widget.Toolbar;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -42,7 +43,7 @@ public class TourList extends AppCompatActivity {
 
 
     private void initialize() {
-        firebaseAuth  = FirebaseAuth.getInstance();
+        firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
         tourRecycler = findViewById(R.id.tourRecycler);
         userID = firebaseAuth.getCurrentUser().getUid();
@@ -63,10 +64,10 @@ public class TourList extends AppCompatActivity {
         startActivity(intent);
     }
 
-  private void getDataFromDB() {
+    private void getDataFromDB() {
 
-       DatabaseReference tourDB = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
-       // DatabaseReference tourDB = firebaseDatabase.getReference();
+        DatabaseReference tourDB = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
+        // DatabaseReference tourDB = firebaseDatabase.getReference();
 
         tourDB.addValueEventListener(new ValueEventListener() {
             @Override
@@ -91,7 +92,7 @@ public class TourList extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Toast.makeText(TourList.this, ""+databaseError, Toast.LENGTH_SHORT).show();
+                Toast.makeText(TourList.this, "" + databaseError, Toast.LENGTH_SHORT).show();
 
             }
         });
