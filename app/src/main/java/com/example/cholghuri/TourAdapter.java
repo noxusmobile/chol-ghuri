@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -128,6 +129,24 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             }
         });
 
+        viewHolder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context,TourDetails.class);
+                intent.putExtra("tourID",currentTour.getTourID());
+                intent.putExtra("tourTitle",currentTour.getTourTitle());
+                intent.putExtra("tourDetails",currentTour.getTourDetails());
+                intent.putExtra("tourAmount",currentTour.getTourAmount());
+                intent.putExtra("tourStartDate",currentTour.getTourStratDate());
+                intent.putExtra("tourEndDate",currentTour.getTourEndDate());
+
+                context.startActivity(intent);
+
+
+            }
+        });
+
 
 
 
@@ -144,6 +163,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
 
         private TextView tripNameTV, tripDescriptionTV, tripAmountTV;
         private Button tripDetailsBTN,tripMomentsBTN,tripDeleteBTN,tripUpdateBTN,addExpenseActivityBTN;
+        private CardView cardView;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -155,6 +175,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             tripDeleteBTN = itemView.findViewById(R.id.tripDeleteBTN);
             tripUpdateBTN=itemView.findViewById(R.id.tripUpdateBTN);
             addExpenseActivityBTN=itemView.findViewById(R.id.addExpenseActivityBTN);
+            cardView = itemView.findViewById(R.id.cardview);
 
         }
     }

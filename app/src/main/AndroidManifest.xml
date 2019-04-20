@@ -16,6 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".TourDetails"></activity>
         <activity android:name=".ResetPassword" />
         <activity android:name=".UpdateTour" />
         <activity android:name=".AddExpense" />
@@ -57,6 +58,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity" />
+
     </application>
 
 </manifest>
