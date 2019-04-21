@@ -9,15 +9,18 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class Userprofile extends AppCompatActivity {
     private FirebaseAuth mAuth;
+    private FirebaseUser firebaseUser;
     private Button signoutBtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userprofile);
         mAuth=FirebaseAuth.getInstance();
+        firebaseUser=mAuth.getCurrentUser();
         signoutBtn=findViewById(R.id.signoutBtn);
         signoutBtn.setOnClickListener(new View.OnClickListener() {
             @Override
