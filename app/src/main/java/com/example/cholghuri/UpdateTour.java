@@ -230,7 +230,8 @@ public class UpdateTour extends AppCompatActivity {
 
                 if(task.isSuccessful()){
 
-                    //Toast.makeText(AddTour.this, "complete", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(UpdateTour.this, "Tour Updated", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });

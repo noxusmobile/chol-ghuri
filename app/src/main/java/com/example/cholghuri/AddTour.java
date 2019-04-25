@@ -184,7 +184,8 @@ public class AddTour extends Activity {
 
                 if(task.isSuccessful()){
 
-                    //Toast.makeText(AddTour.this, "complete", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(AddTour.this, "Tour Added", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });

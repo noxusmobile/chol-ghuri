@@ -191,7 +191,10 @@ public class AddExpense extends AppCompatActivity {
 
                 if (task.isSuccessful()) {
 
-                    //Toast.makeText(AddTour.this, "complete", Toast.LENGTH_SHORT).show();
+
+
+                    Toast.makeText(AddExpense.this, "Expense Added", Toast.LENGTH_LONG).show();
+                    finish();
                 }
             }
         });
