@@ -197,7 +197,8 @@ private void onclick() {
                     }
 
                 } else {
-                    Toast.makeText(TourDetails.this, "Empty database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TourDetails.this, "Empty Expense List", Toast.LENGTH_SHORT).show();
+                    expenseAdapter.notifyDataSetChanged();
                 }
 
             }

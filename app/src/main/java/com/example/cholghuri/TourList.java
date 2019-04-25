@@ -109,8 +109,12 @@ public class TourList extends AppCompatActivity {
                     }
 
                 } else {
-                    Toast.makeText(TourList.this, "Empty database", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TourList.this, "Empty Tour List", Toast.LENGTH_SHORT).show();
+                    tourAdapter.notifyDataSetChanged();
+
                 }
+                tourAdapter.notifyDataSetChanged();
+
 
             }
 

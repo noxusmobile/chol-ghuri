@@ -73,6 +73,7 @@ public class ExpenseAdapter extends RecyclerView.Adapter<ExpenseAdapter.ViewHold
 
                         DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList").child(tourID).child("ExpenseList");
                         databaseReference.child(currentExpense.getExpenseID()).removeValue();
+
                     }
 
                 });

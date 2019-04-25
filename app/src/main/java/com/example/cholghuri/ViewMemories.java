@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -71,6 +72,11 @@ public class ViewMemories extends AppCompatActivity {
                         memoryAdapter.notifyDataSetChanged();
                       //  progress_circular.setVisibility(recyclerViewId.INVISIBLE);
                     }
+                }
+                else{
+                    Toast.makeText(ViewMemories.this, "Empty Memories List", Toast.LENGTH_SHORT).show();
+                    memoryAdapter.notifyDataSetChanged();
+
                 }
 
             }
