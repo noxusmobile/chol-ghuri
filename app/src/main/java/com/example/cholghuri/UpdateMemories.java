@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -31,7 +32,7 @@ import com.squareup.picasso.Picasso;
 public class UpdateMemories extends AppCompatActivity {
 
     private ImageView memoriesPic;
-    private EditText memoriesCaption;
+    private TextInputEditText memoriesCaption;
     private Button memoriesSave,memoriesTakePicture;
     private ProgressBar memoriesProgressBar;
     private FirebaseDatabase firebaseDatabase;

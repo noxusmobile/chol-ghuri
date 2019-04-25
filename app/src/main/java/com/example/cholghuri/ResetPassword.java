@@ -2,6 +2,7 @@ package com.example.cholghuri;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -19,7 +20,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import java.nio.Buffer;
 
 public class ResetPassword extends AppCompatActivity {
- private EditText resetPassET;
+ private TextInputEditText resetPassET;
  private Button   resetpassBTN;
  private FirebaseAuth mAuth;
 

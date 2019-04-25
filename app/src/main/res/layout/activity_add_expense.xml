@@ -65,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Amount"
-            android:inputType="text"
+            android:inputType="number"
             android:padding="10dp"
             android:textColor="@color/white"/>
 
