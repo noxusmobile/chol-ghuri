@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         button3=findViewById(R.id.button3);
         locationMapBtn=findViewById(R.id.locationMapBtn);
 
+
         locationMapBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

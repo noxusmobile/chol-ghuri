@@ -1,3 +1,4 @@
+/*
 package com.example.cholghuri;
 
 import android.app.Application;
@@ -21,3 +22,4 @@ public class Session extends Application {
         }
     }
 }
+*/
