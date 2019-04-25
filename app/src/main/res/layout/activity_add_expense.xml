@@ -5,75 +5,78 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".AddTour"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingRight="60dp"
+    android:paddingTop="120dp"
+    android:paddingLeft="30dp"
+    android:background="@drawable/background_grad"
+    >
 
-    <EditText
-        android:id="@+id/addExpenseTitleET"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="Enter Expense Title here"
-        android:inputType="text"
-        android:paddingRight="80dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:background="#ffff"/>
+    <android.support.design.widget.TextInputLayout
 
-    <EditText
-        android:id="@+id/addExpenseDetailsET"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="Enter Expense Details here"
-        android:inputType="text"
-        android:paddingRight="80dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:background="#ffff"/>
-
-    <EditText
-        android:id="@+id/addExpenseAmountET"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="Enter Expense Amount here"
-        android:inputType="number"
-        android:paddingRight="80dp"
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:background="#ffff"/>
-
-<!--
-    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:weightSum="2"
-        android:layout_marginTop="40dp"
-        android:layout_marginHorizontal="20dp">
+        app:errorEnabled="true"
 
-        <Button
-            android:id="@+id/fromDateTourBTN"
+        >
+
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/addExpenseTitleET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Title"
+            android:inputType="text"
+            android:textColor="@color/white"
+            android:padding="10dp"
+            />
 
-            android:text="From date"
-            android:textAllCaps="false"
-            android:layout_weight="1" />
+    </android.support.design.widget.TextInputLayout>
 
-        <Button
-            android:id="@+id/toDateTourBTN"
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+
+        >
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/addExpenseDetailsET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="To date"
-            android:textAllCaps="false"
-            android:layout_weight="1" />
+            android:hint="Details"
+            android:padding="10dp"
+            android:inputType="text"
+            android:textColor="@color/white"
+            />
+
+    </android.support.design.widget.TextInputLayout>
 
 
 
-    </LinearLayout>
--->
+    <android.support.design.widget.TextInputLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:errorEnabled="true"
+
+        >
+        <android.support.design.widget.TextInputEditText
+            android:id="@+id/addExpenseAmountET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Amount"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"/>
+
+    </android.support.design.widget.TextInputLayout>
+
+
+
 
 
     <Button
-
+        android:layout_gravity="center"
         android:id="@+id/addExpenseBTN"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,7 +84,13 @@
         android:layout_marginBottom="20dp"
         android:layout_marginHorizontal="50dp"
         android:text="Add EXPENSE"
-        android:textAllCaps="false"
+        android:textSize="16sp"
+
+
+        android:textAllCaps="true"
+        android:background="@drawable/bgbtn"
+
         />
+
 
 </LinearLayout>
