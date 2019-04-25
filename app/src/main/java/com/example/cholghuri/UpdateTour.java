@@ -6,6 +6,7 @@ import android.icu.text.SimpleDateFormat;
 import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.TextInputEditText;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -28,7 +29,7 @@ import java.util.Date;
 
 public class UpdateTour extends AppCompatActivity {
 
-    private EditText addTourTitleET, addTourDetailsET, addTourAmountET;
+    private TextInputEditText addTourTitleET, addTourDetailsET, addTourAmountET;
     private Button updateTourBTN,fromDateTourBTN ,toDateTourBTN;
     private FirebaseAuth firebaseauth;
     private FirebaseDatabase firebaseDatabase;

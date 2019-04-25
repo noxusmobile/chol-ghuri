@@ -8,6 +8,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
+import android.support.design.widget.TextInputEditText;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -29,7 +30,7 @@ import java.util.Date;
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class AddTour extends Activity {
 
-    private EditText addTourTitleET, addTourDetailsET, addTourAmountET;
+    private TextInputEditText addTourTitleET, addTourDetailsET, addTourAmountET;
     private Button addTourBTN,fromDateTourBTN ,toDateTourBTN;
     private FirebaseAuth firebaseauth;
     private FirebaseDatabase firebaseDatabase;
