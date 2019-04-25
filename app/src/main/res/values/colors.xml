@@ -5,4 +5,6 @@
     <color name="colorAccent">#FF4081</color>
     <color name="brightAsh">#696969</color>
     <color name="white">#FFFFFF</color>
+    <color name="Red">#FF0000</color>
+    <color name="Blue">#0000ff</color>
 </resources>

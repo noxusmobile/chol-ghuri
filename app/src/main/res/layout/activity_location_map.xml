@@ -7,22 +7,80 @@
     xmlns:map="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/searchLocationET"
+            android:layout_width="334dp"
+            android:layout_height="50dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:ems="10"
+            android:hint="Write place name here .."/>
+
+        <ImageButton
+            android:id="@+id/searchLocationIB"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/search_icon"
+            android:onClick="searchLocation"
+            android:tint="@color/brightAsh"/>
+    </RelativeLayout>
+
     <FrameLayout
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_marginTop="45dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
         tools:context=".LocationMap" />
-    <android.support.design.widget.FloatingActionButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginRight="10dp"
-        android:layout_marginBottom="30dp"
-        map:borderWidth="0dp"
-        android:backgroundTint="@color/brightAsh"
-        android:src="@drawable/ic_my_location_black_24dp"
-        android:tint="@color/white"
-        />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp">
+
+        <ImageButton
+            android:id="@+id/hospitalsIB"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginLeft="60dp"
+            android:padding="5dp"
+            android:src="@mipmap/hospital"
+            android:scaleType="fitCenter"
+            android:tint="@color/Red"/>
+
+        <ImageButton
+            android:id="@+id/schoolsIB"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/hospitalsIB"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/education"
+            android:scaleType="fitCenter" />
+        <ImageButton
+            android:id="@+id/restaurantsIB"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:layout_alignParentBottom="true"
+            android:layout_toEndOf="@id/schoolsIB"
+            android:paddingVertical="2dp"
+            android:layout_marginLeft="20dp"
+            android:src="@mipmap/restaurant"
+            android:scaleType="fitCenter"
+            android:tint="@color/Blue"/>
+
+    </RelativeLayout>
 </RelativeLayout>
