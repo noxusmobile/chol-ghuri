@@ -85,10 +85,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tripDescriptionTV"
             android:orientation="horizontal"
-            android:weightSum="5">
+            android:weightSum="10">
 
 
-            <Button
+           <!-- <Button
                 android:id="@+id/tripDetailsBTN"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -102,9 +102,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Moment"
-                android:textAllCaps="false" />
+                android:textAllCaps="false" />-->
 
-            <Button
+           <!-- <Button
                 android:id="@+id/tripDeleteBTN"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
@@ -126,15 +126,19 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Add exp"
-                android:textAllCaps="false" />
+                android:textAllCaps="false" />-->
+           <!-- <view
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"/>-->
 
             <ImageView
                 android:id="@+id/menuecard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginRight="19dp"
 
+                android:layout_alignParentTop="true"
+                android:layout_weight="1"
                 android:src="@drawable/menuec" />
         </LinearLayout>
 

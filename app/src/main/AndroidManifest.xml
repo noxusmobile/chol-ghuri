@@ -8,6 +8,7 @@
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".Session"
@@ -17,7 +18,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TourDetails"></activity>
+        <activity android:name=".UpdateMemories"></activity>
+        <activity android:name=".ViewMemories" />
+        <activity android:name=".AddMemories" />
+        <activity android:name=".TourDetails" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".UpdateTour" />
         <activity android:name=".AddExpense" />
@@ -48,8 +52,8 @@
             android:label="@string/title_activity_location_map" />
         <activity
             android:name=".Userprofile"
-            android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme" />
         <activity
             android:name=".SplashScreen"
             android:theme="@style/AppTheme2">
@@ -60,7 +64,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".SignUpActivity" />
-
     </application>
 
 </manifest>

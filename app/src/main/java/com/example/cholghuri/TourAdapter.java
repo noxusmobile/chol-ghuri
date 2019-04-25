@@ -67,7 +67,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
         String temp = String.valueOf(currentTour.getTourAmount());
         viewHolder.tripAmountTV.setText(temp);
 
-        viewHolder.addExpenseActivityBTN.setOnClickListener(new View.OnClickListener() {
+        /*viewHolder.addExpenseActivityBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -82,7 +82,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                 context.startActivity(intent);
 
             }
-        });
+        });*/
 
 
         /*viewHolder.tripDeleteBTN.setOnClickListener(new View.OnClickListener() {
@@ -101,11 +101,9 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                 alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-
                         DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
                         databaseReference.child(currentTour.getTourID()).removeValue();
                     }
-
                 });
                 alert.setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
@@ -114,14 +112,11 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                     }
                 });
                 alert.show();
-
             }
         });
-
         viewHolder.tripUpdateBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 Intent intent = new Intent(context, UpdateTour.class);
                 intent.putExtra("tourID", currentTour.getTourID());
                 intent.putExtra("tourTitle", currentTour.getTourTitle());
@@ -129,10 +124,7 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
                 intent.putExtra("tourAmount", currentTour.getTourAmount());
                 intent.putExtra("tourStartDate", currentTour.getTourStratDate());
                 intent.putExtra("tourEndDate", currentTour.getTourEndDate());
-
                 context.startActivity(intent);
-
-
             }
         });*/
 
@@ -236,11 +228,11 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             tripNameTV = itemView.findViewById(R.id.tripNameTV);
             tripDescriptionTV = itemView.findViewById(R.id.tripDescriptionTV);
             tripAmountTV = itemView.findViewById(R.id.tripAmountTV);
-            tripDetailsBTN = itemView.findViewById(R.id.tripDetailsBTN);
+            /*tripDetailsBTN = itemView.findViewById(R.id.tripDetailsBTN);
             tripMomentsBTN = itemView.findViewById(R.id.tripMomentsBTN);
-            /*tripDeleteBTN = itemView.findViewById(R.id.tripDeleteBTN);
-            tripUpdateBTN=itemView.findViewById(R.id.tripUpdateBTN);*/
-            addExpenseActivityBTN=itemView.findViewById(R.id.addExpenseActivityBTN);
+            tripDeleteBTN = itemView.findViewById(R.id.tripDeleteBTN);
+            tripUpdateBTN=itemView.findViewById(R.id.tripUpdateBTN);
+            addExpenseActivityBTN=itemView.findViewById(R.id.addExpenseActivityBTN);*/
             cardView = itemView.findViewById(R.id.cardview);
             menuecard=itemView.findViewById(R.id.cardview_image);
         }
@@ -257,16 +249,12 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
         popup.setOnMenuItemClickListener(new MyMenuItemClickListener());
         popup.show();
     }
-
     *//**
      * Click listener for popup menu items
      *//*
     class MyMenuItemClickListener implements PopupMenu.OnMenuItemClickListener {
-
         public MyMenuItemClickListener() {
         }
-
-
         @Override
         public boolean onMenuItemClick(MenuItem menuItem) {
             switch (menuItem.getItemId()) {

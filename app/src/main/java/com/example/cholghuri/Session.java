@@ -13,8 +13,10 @@ public class Session extends Application {
         FirebaseAuth mAuth=FirebaseAuth.getInstance();
         FirebaseUser firebaseUser=mAuth.getCurrentUser();
         if(firebaseUser !=null){
-            Intent intent=new Intent(getApplicationContext(),Userprofile.class);
+            Intent intent=new Intent(Session.this,Userprofile.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
+
 
         }
     }

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+      <ImageView
+          android:id="@+id/memoriesPic"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:src="@drawable/ic_launcher_foreground"
+          />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+            <TextView
+                android:paddingTop="5dp"
+                android:id="@+id/memoriesCaption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Caption"
+                android:textSize="20dp"
+                android:textAlignment="center"
+                android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/menucard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="9"
+                android:src="@drawable/menuec" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

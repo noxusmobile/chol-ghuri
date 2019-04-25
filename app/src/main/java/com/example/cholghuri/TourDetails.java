@@ -7,6 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,6 +26,7 @@ import java.util.List;
 public class TourDetails extends AppCompatActivity {
 
     private TextView TourTitleTV,TourDetailsTV,TourAmountTV,fromDateTourTV,toDateTourTV;
+    private Button addExpenseActivityBTN,addMemoriesBTN,viewMemoriesBTN;
 
     private long selectedDateinFromMS,selectedDateinToMS;
     private RecyclerView expenseRecycler;
@@ -47,9 +50,44 @@ public class TourDetails extends AppCompatActivity {
 
 
         initialize();
+        onclick();
         getDataFromIntent();
         initRecyclerView();
         getDataFromDB();
+    }
+
+    private void onclick() {
+
+        addExpenseActivityBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TourDetails.this, AddExpense.class);
+                intent.putExtra("tourID",tourID);
+                startActivity(intent);
+
+            }
+        });
+
+        viewMemoriesBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(TourDetails.this, ViewMemories.class);
+                intent.putExtra("tourID",tourID);
+                startActivity(intent);
+
+            }
+        });
+
+        addMemoriesBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(TourDetails.this, AddMemories.class);
+                intent.putExtra("tourID",tourID);
+                startActivity(intent);
+
+            }
+        });
     }
 
     private void getDataFromIntent() {
@@ -98,6 +136,11 @@ public class TourDetails extends AppCompatActivity {
         TourAmountTV = findViewById(R.id.TourAmountTV);
         fromDateTourTV = findViewById(R.id.fromDateTourTV);
         toDateTourTV = findViewById(R.id.toDateTourTV);
+
+
+        addExpenseActivityBTN=findViewById(R.id.addExpenseActivityBTN);
+        addMemoriesBTN=findViewById(R.id.addMemoriesBTN);
+        viewMemoriesBTN=findViewById(R.id.viewMemoriesBTN);
 
     }
 

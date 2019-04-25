@@ -52,6 +52,7 @@ public class Userprofile extends AppCompatActivity {
     private void signoutfun() {
         FirebaseAuth.getInstance().signOut();
         Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+
         startActivity(intent);
         finish();
     }

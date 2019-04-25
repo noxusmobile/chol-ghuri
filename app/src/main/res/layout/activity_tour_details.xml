@@ -12,31 +12,71 @@
         android:layout_height="wrap_content">
 
         <TextView
-            
             android:id="@+id/TourTitleTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/TourDetailsTV"
+            android:layout_below="@id/TourTitleTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/TourAmountTV"
+            android:layout_below="@id/TourDetailsTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/fromDateTourTV"
+            android:layout_below="@id/TourAmountTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <TextView
             android:id="@+id/toDateTourTV"
+            android:layout_below="@id/fromDateTourTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
     </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/btnHolder"
+        android:layout_below="@id/tourDetailsHolder"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            
+            <Button
+                android:id="@+id/addExpenseActivityBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add expense"
+                android:textAllCaps="false"/>
+            <Button
+                android:id="@+id/addMemoriesBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" 
+                android:text="Add Memories"
+                android:textAllCaps="false"
+                />
+            <Button
+                android:id="@+id/viewMemoriesBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="View Memories"
+                android:textAllCaps="false"/>
+            
+        </LinearLayout>
+        
+        
+        
+    </RelativeLayout>
 
 <RelativeLayout
-    android:layout_below="@id/tourDetailsHolder"
+    android:layout_below="@id/btnHolder"
     android:id="@+id/expenseRecyclerHolder"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
