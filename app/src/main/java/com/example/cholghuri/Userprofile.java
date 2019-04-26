@@ -26,12 +26,13 @@ public class Userprofile extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     private Button signoutBtn;
     private WeatherForecastResponse weatherForecastResponseList;
-    private TextView tempTV,windTV,humidityTV,pressureTV,weatherTypeTV;
+    private TextView tempTV, windTV, humidityTV, pressureTV, weatherTypeTV;
     private ImageView weatherIconIV;
-    private double lat=23.7508671;
-    private double lon=90.3913638;
-    int temp,pressure;
-    private String units="metric";
+    private double lat = 23.7508671;
+    private double lon = 90.3913638;
+    int temp, pressure;
+    private String units = "metric";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,43 +41,43 @@ public class Userprofile extends AppCompatActivity {
         setTitle("Home");
 
 
-        mAuth=FirebaseAuth.getInstance();
-        firebaseUser=mAuth.getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
 
 
+        tempTV = findViewById(R.id.tempTVID);
+        windTV = findViewById(R.id.windTVID);
+        humidityTV = findViewById(R.id.humidityTVID);
+        pressureTV = findViewById(R.id.pressureTVID);
+        weatherTypeTV = findViewById(R.id.weatherTypeTVID);
 
-        tempTV=findViewById(R.id.tempTVID);
-        windTV=findViewById(R.id.windTVID);
-        humidityTV=findViewById(R.id.humidityTVID);
-        pressureTV=findViewById(R.id.pressureTVID);
-        weatherTypeTV=findViewById(R.id.weatherTypeTVID);
-
-        weatherIconIV=findViewById(R.id.weatherIconIVID);
+        weatherIconIV = findViewById(R.id.weatherIconIVID);
         getWeatherUpdate();
 
     }
+
     private void getWeatherUpdate() {
-        Weather_service weatherService= RetrofitClass.getRetrofitInstance().create(Weather_service.class);
-        String url = String.format("forecast?lat=%f&lon=%f&units=%s&appid=%s",lat,lon,units,getResources().getString(R.string.weather_key));
-        Call<WeatherForecastResponse> weatherForecastResponseCall=weatherService.getWeatherForecastData(url);
+        Weather_service weatherService = RetrofitClass.getRetrofitInstance().create(Weather_service.class);
+        String url = String.format("forecast?lat=%f&lon=%f&units=%s&appid=%s", lat, lon, units, getResources().getString(R.string.weather_key));
+        Call<WeatherForecastResponse> weatherForecastResponseCall = weatherService.getWeatherForecastData(url);
         weatherForecastResponseCall.enqueue(new Callback<WeatherForecastResponse>() {
             @Override
             public void onResponse(Call<WeatherForecastResponse> call, Response<WeatherForecastResponse> response) {
-                if(response.code()==200){
-                    weatherForecastResponseList=response.body();
+                if (response.code() == 200) {
+                    weatherForecastResponseList = response.body();
                     weatherTypeTV.setText(weatherForecastResponseList.getList().get(0).weather.get(0).getDescription());
-                    temp=(int)Math.round(weatherForecastResponseList.getList().get(0).getMain().getTemp());
-                    tempTV.setText(temp+" °C");
+                    temp = (int) Math.round(weatherForecastResponseList.getList().get(0).getMain().getTemp());
+                    tempTV.setText(temp + " °C");
 
                     Picasso.with(Userprofile.this).load(new StringBuilder("https://openweathermap.org/img/w/")
                             .append(weatherForecastResponseList.getList().get(0).weather.get(0).getIcon())
                             .append(".png").toString()).into(weatherIconIV);
 
-                    windTV.setText(weatherForecastResponseList.getList().get(0).wind.getSpeed()+ " m/s");
-                    humidityTV.setText(weatherForecastResponseList.getList().get(0).getMain().getHumidity()+" %");
+                    windTV.setText(weatherForecastResponseList.getList().get(0).wind.getSpeed() + " m/s");
+                    humidityTV.setText(weatherForecastResponseList.getList().get(0).getMain().getHumidity() + " %");
                     //converting pressure from double to int
-                    pressure=(int)Math.round(weatherForecastResponseList.getList().get(0).getMain().getPressure());
-                    pressureTV.setText(pressure+" hPa");
+                    pressure = (int) Math.round(weatherForecastResponseList.getList().get(0).getMain().getPressure());
+                    pressureTV.setText(pressure + " hPa");
 
                 }
 
@@ -84,7 +85,7 @@ public class Userprofile extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<WeatherForecastResponse> call, Throwable t) {
-                Toast.makeText(Userprofile.this,t.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Userprofile.this, t.getMessage(), Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -93,43 +94,48 @@ public class Userprofile extends AppCompatActivity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_layout,menu);
+        getMenuInflater().inflate(R.menu.menu_layout, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        if(item.getItemId()==R.id.signoutId){
+        if (item.getItemId() == R.id.signoutId) {
             FirebaseAuth.getInstance().signOut();
-            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-            startActivity(intent);
-            finish();
-        }if (item.getItemId()==R.id.resetPass){
-            Intent intent=new Intent(getApplicationContext(),ResetPassword.class);
+            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(intent);
             finish();
         }
-        if (item.getItemId()==R.id.homeId){
-            Intent intent=new Intent(getApplicationContext(),Userprofile.class);
+        if (item.getItemId() == R.id.resetPass) {
+            Intent intent = new Intent(getApplicationContext(), ResetPassword.class);
             startActivity(intent);
-            finish();}
+            finish();
+        }
+        if (item.getItemId() == R.id.homeId) {
+            Intent intent = new Intent(getApplicationContext(), Userprofile.class);
+            startActivity(intent);
+            finish();
+        }
         return super.onOptionsItemSelected(item);
     }
 
 
     public void nextActivity(View view) {
-        Intent intent=new Intent(Userprofile.this,TourList.class);
+        Intent intent = new Intent(Userprofile.this, TourList.class);
         startActivity(intent);
     }
 
 
     public void weatherForecast(View view) {
-        Intent intent= new Intent(Userprofile.this,WeatherForecast.class);
+        Intent intent = new Intent(Userprofile.this, WeatherForecast.class);
         startActivity(intent);
 
-   
+
+
+    }
+
     public void checkMap(View view) {
-        Intent intent2= new Intent(Userprofile.this,LocationMap.class);
+        Intent intent2 = new Intent(Userprofile.this, LocationMap.class);
         startActivity(intent2);
     }
 }
