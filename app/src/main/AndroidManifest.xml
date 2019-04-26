@@ -20,6 +20,7 @@
         android:roundIcon="@mipmap/ic_launcher_icon1_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
+        android:name=".cholghuri"
         android:usesCleartextTraffic="true">
         <activity android:name=".WeatherForecast"></activity>
         <activity android:name=".UpdateMemories" />
