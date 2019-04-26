@@ -132,25 +132,11 @@
                   <entry key="vectorAssetStep">
                     <value>
                       <PersistentState>
-                        <option name="children">
-                          <map>
-                            <entry key="clipartAsset">
-                              <value>
-                                <PersistentState>
-                                  <option name="values">
-                                    <map>
-                                      <entry key="url" value="jar:file:/B:/Android%20St/plugins/android/lib/android.jar!/images/material_design_icons/alert/ic_error_black_24dp.xml" />
-                                    </map>
-                                  </option>
-                                </PersistentState>
-                              </value>
-                            </entry>
-                          </map>
-                        </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="error" />
-                            <entry key="sourceFile" value="C:\Users\Rakin" />
+                            <entry key="assetSourceType" value="FILE" />
+                            <entry key="outputName" value="ic_signout" />
+                            <entry key="sourceFile" value="D:\ANDROID STUDIO PROJECT NOXUS\signout.svg" />
                           </map>
                         </option>
                       </PersistentState>
