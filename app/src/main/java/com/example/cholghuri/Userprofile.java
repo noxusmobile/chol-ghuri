@@ -42,15 +42,8 @@ public class Userprofile extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
         firebaseUser=mAuth.getCurrentUser();
-        signoutBtn=findViewById(R.id.signoutBtn);
-       /* signoutBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                signoutfun();
-            }
 
 
-        });*/
 
         tempTV=findViewById(R.id.tempTVID);
         windTV=findViewById(R.id.windTVID);
@@ -123,16 +116,18 @@ public class Userprofile extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-   /* private void signoutfun() {
-        FirebaseAuth.getInstance().signOut();
-        Intent intent=new Intent(getApplicationContext(),MainActivity.class);
-
-        startActivity(intent);
-        finish();
-    }*/
 
     public void nextActivity(View view) {
         Intent intent=new Intent(Userprofile.this,TourList.class);
         startActivity(intent);
+    }
+
+    public void checkWeatherForcast(View view) {
+
+    }
+
+    public void checkMap(View view) {
+        Intent intent2= new Intent(Userprofile.this,LocationMap.class);
+        startActivity(intent2);
     }
 }

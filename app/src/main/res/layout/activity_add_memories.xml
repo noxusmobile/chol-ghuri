@@ -42,6 +42,7 @@
             android:inputType="text"
             android:textColor="@color/white"
             android:paddingTop="40dp"
+            android:imeOptions="actionDone"
             />
 
     </android.support.design.widget.TextInputLayout>

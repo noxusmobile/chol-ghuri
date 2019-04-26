@@ -31,7 +31,8 @@
         <activity android:name=".AddExpense" />
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme2"/>
-        <activity android:name=".AddTour" />
+        <activity android:name=".AddTour"
+            android:theme="@style/AppTheme"/>
         <activity
             android:name=".TourList"
             android:theme="@style/AppTheme" />
