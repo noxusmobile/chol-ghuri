@@ -13,4 +13,21 @@
 
     </android.support.v7.widget.RecyclerView>
 
+
+<android.support.design.widget.FloatingActionButton
+android:id="@+id/addExpanseFAB"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentRight="true"
+android:layout_alignParentBottom="true"
+android:layout_gravity="end|bottom"
+android:layout_marginEnd="60dp"
+android:layout_marginRight="60dp"
+android:layout_marginBottom="65dp"
+android:clickable="true"
+android:src="@drawable/ic_image_black_24dp"
+app:maxImageSize="40dp"
+android:onClick="addMemories"/>
+
 </RelativeLayout>

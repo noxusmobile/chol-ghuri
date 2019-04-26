@@ -83,15 +83,7 @@ public class TourDetails extends AppCompatActivity {
     }
 private void onclick() {
 
-        addExpenseActivityBTN.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(TourDetails.this, AddExpense.class);
-                intent.putExtra("tourID",tourID);
-                startActivity(intent);
 
-            }
-        });
 
         viewMemoriesBTN.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -163,7 +155,9 @@ private void onclick() {
         toDateTourTV = findViewById(R.id.toDateTourTV);
 
 
+/*
         addExpenseActivityBTN=findViewById(R.id.addExpenseActivityBTN);
+*/
         addMemoriesBTN=findViewById(R.id.addMemoriesBTN);
         viewMemoriesBTN=findViewById(R.id.viewMemoriesBTN);
 
@@ -223,5 +217,12 @@ private void onclick() {
 
            }
        });*/
+    }
+
+    public void addExpense(View view) {
+
+        Intent intent = new Intent(TourDetails.this, AddExpense.class);
+        intent.putExtra("tourID",tourID);
+        startActivity(intent);
     }
 }

@@ -43,6 +43,10 @@ public class UpdateTour extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        setTitle("Update Tour");
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_tour);
         firebaseauth = FirebaseAuth.getInstance();

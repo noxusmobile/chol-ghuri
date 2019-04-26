@@ -46,6 +46,9 @@ public class AddExpense extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_expense);
+
+        setTitle("Add Expense");
+
         firebaseauth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
@@ -171,8 +174,6 @@ public class AddExpense extends AppCompatActivity {
     }
 
     private void sendExpenseDataToDatabase(Expense expense) {
-
-
 
 
 

@@ -15,41 +15,58 @@
         android:elevation="4dp"
         android:padding="16dp">
 
-        <ImageView
+      <!--  <ImageView
             android:id="@+id/cardview_image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginRight="18dp"
-            android:src="@drawable/ic_menu_camera" />
+            android:src="@drawable/ic_menu_camera" />-->
 
-
-        <TextView
-            android:id="@+id/tripName"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:id="@+id/tripNameTVholder"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/cardview_image"
-            android:paddingBottom="5dp"
-            android:text="Title :"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <TextView
+                android:id="@+id/tripName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/cardview_image"
+                android:paddingBottom="5dp"
+                android:text="Title :"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_weight=".5"/>
+            <TextView
+                android:id="@+id/tripNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/tripName"
+                android:paddingBottom="5dp"
+                android:textSize="24sp"
+                android:layout_weight="9"/>
 
-        <TextView
-            android:id="@+id/tripNameTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/tripName"
-            android:paddingBottom="5dp"
+            <ImageView
+                android:id="@+id/menuecard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
 
-            android:textSize="24sp" />
+                android:layout_alignParentTop="true"
+                android:layout_weight=".5"
+                android:src="@drawable/menuec" />
+
+        </LinearLayout>
+
 
         <TextView
             android:id="@+id/tripAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tripNameTV"
+            android:layout_below="@+id/tripNameTVholder"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Amount :"
             android:textColor="#8b8b8b"
@@ -59,7 +76,7 @@
             android:id="@+id/tripAmountTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/tripNameTV"
+            android:layout_below="@+id/tripNameTVholder"
             android:layout_toRightOf="@+id/tripAmount"
             android:textColor="#8b8b8b" />
 
@@ -88,127 +105,15 @@
             android:weightSum="10">
 
 
-           <!-- <Button
-                android:id="@+id/tripDetailsBTN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Details"
-                android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/tripMomentsBTN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Moment"
-                android:textAllCaps="false" />-->
 
-           <!-- <Button
-                android:id="@+id/tripDeleteBTN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Delete"
-                android:textAllCaps="false" />
 
-            <Button
-                android:id="@+id/tripUpdateBTN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Update"
-                android:textAllCaps="false" />
-
-            <Button
-                android:id="@+id/addExpenseActivityBTN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Add exp"
-                android:textAllCaps="false" />-->
-           <!-- <view
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="9"/>-->
-
-            <ImageView
-                android:id="@+id/menuecard"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-
-                android:layout_alignParentTop="true"
-                android:layout_weight="1"
-                android:src="@drawable/menuec" />
         </LinearLayout>
 
     </RelativeLayout>
 
 
-    <!--
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/tripNameTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tripAmountTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/tripDescriptionTV"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:weightSum="5">
-                <Button
-                    android:id="@+id/tripDetailsBTN"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Details"
-                    android:textAllCaps="false"
-                    />
-                <Button
-                    android:id="@+id/tripMomentsBTN"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Moment"
-                    android:textAllCaps="false"
-                    />
-                <Button
-                    android:id="@+id/tripDeleteBTN"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Delete"
-                    android:textAllCaps="false"
-                    />
-                <Button
-                    android:id="@+id/tripUpdateBTN"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Update"
-                    android:textAllCaps="false"
-                    />
-                <Button
-                    android:id="@+id/addExpenseActivityBTN"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Add exp"
-                    android:textAllCaps="false"
-                    />
-            </LinearLayout>
-        </LinearLayout>-->
+
 
 
 </android.support.v7.widget.CardView>

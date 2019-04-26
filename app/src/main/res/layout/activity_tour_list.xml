@@ -6,8 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".TourList">
 
+
+
+
+
+        <LinearLayout
+
+            android:id="@+id/buttonContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginHorizontal="60dp"
+            android:paddingTop="10dp"
+            android:weightSum="2">
+
+            <Button
+                android:id="@+id/dateFrom"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/colorPrimary"
+                android:text="From date"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/dateTo"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/colorPrimary"
+                android:text="To date"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary" />
+
+        </LinearLayout>
+
+
+
     <android.support.v7.widget.RecyclerView
         android:id="@+id/tourRecycler"
+        android:layout_below="@id/buttonContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 

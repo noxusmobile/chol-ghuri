@@ -14,10 +14,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
@@ -26,8 +30,10 @@ public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHo
 
     private FirebaseDatabase firebaseDatabase;
     private FirebaseAuth firebaseAuth;
+    private FirebaseStorage firebaseStorage;
     private String userID;
     private String tourID;
+    private DatabaseReference databaseReference;
 
     private List<Upload> uploadList;
     private Context context;
@@ -43,6 +49,7 @@ public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHo
     public MemoriesAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         firebaseDatabase = FirebaseDatabase.getInstance();
         firebaseAuth = FirebaseAuth.getInstance();
+        firebaseStorage = FirebaseStorage.getInstance();
         userID = firebaseAuth.getCurrentUser().getUid();
         View itemView = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.memories_list_layout, viewGroup, false);
 
@@ -78,8 +85,15 @@ public class MemoriesAdapter extends RecyclerView.Adapter<MemoriesAdapter.ViewHo
                                     @Override
                                     public void onClick(DialogInterface dialog, int which) {
 
-                                        DatabaseReference databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList").child(tourID).child("MemoryList");
-                                        databaseReference.child(currentUpload.getUploadID()).removeValue();
+                                        databaseReference = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList").child(tourID).child("MemoryList");
+                                        StorageReference imageRef = firebaseStorage.getReferenceFromUrl(currentUpload.getUploadURI());
+                                        imageRef.delete().addOnSuccessListener(new OnSuccessListener<Void>() {
+                                            @Override
+                                            public void onSuccess(Void aVoid) {
+                                                databaseReference.child(currentUpload.getUploadID()).removeValue();
+                                                Toast.makeText(context, "Item Deleted", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                                     }
 
                                 });
