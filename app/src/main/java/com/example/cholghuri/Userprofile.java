@@ -122,8 +122,10 @@ public class Userprofile extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void checkWeatherForcast(View view) {
+    public void WeatherForcast(View view) {
 
+        /*Intent intent=new Intent(Userprofile.this,WeatherForcast.class);
+        startActivity(intent);*/
     }
 
     public void checkMap(View view) {
