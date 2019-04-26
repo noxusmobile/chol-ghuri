@@ -28,6 +28,7 @@ android:layout_marginRight="60dp"
 android:layout_marginBottom="65dp"
 android:clickable="true"
 android:src="@drawable/ic_image_black_24dp"
+android:backgroundTint="#A8739E"
 app:maxImageSize="40dp"
 android:onClick="addMemories"/>
 

@@ -16,7 +16,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:layout_marginHorizontal="60dp"
+            android:layout_marginHorizontal="40dp"
             android:paddingTop="10dp"
             android:weightSum="3">
 
@@ -26,10 +26,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_weight="1"
-                android:drawableTint="@color/colorPrimary"
                 android:text="From date"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/bgbtn"/>
 
             <Button
                 android:id="@+id/dateTo"
@@ -37,20 +37,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_weight="1"
-                android:drawableTint="@color/colorPrimary"
+                android:background="@drawable/bgbtn"
                 android:text="To date"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                />
             <Button
                 android:id="@+id/filterBTN"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="2dp"
                 android:layout_weight="1"
-                android:drawableTint="@color/colorPrimary"
                 android:text="Filter"
                 android:textAllCaps="false"
-                android:textColor="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:background="@drawable/bgbtn"/>
 
 
         </LinearLayout>
@@ -80,5 +81,6 @@
         android:clickable="true"
         android:src="@drawable/ic_add_black_24dp"
         app:maxImageSize="40dp"
-        android:onClick="addTour"/>
+        android:onClick="addTour"
+        android:backgroundTint="#A8739E"/>
 </RelativeLayout>
