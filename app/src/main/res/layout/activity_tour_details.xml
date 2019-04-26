@@ -4,15 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TourDetails">
+    tools:context=".TourDetails"
+    android:background="@drawable/background_grad">
 
     <RelativeLayout
         android:id="@+id/tourDetailsHolder"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#fff"
+
         android:elevation="4dp"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="#ffff">
 
             <TextView
                 android:id="@+id/TourTitle"

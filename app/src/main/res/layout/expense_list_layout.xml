@@ -7,61 +7,90 @@
     android:layout_margin="5dp"
     android:id="@+id/cardview">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/relative1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:background="#fff"
+        android:elevation="4dp"
+        android:padding="16dp">
+
+
+            <TextView
+                android:id="@+id/expenseName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/cardview_image"
+                android:paddingBottom="5dp"
+                android:text="Expense Title :"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                />
+            <TextView
+                android:id="@+id/expenseNameTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/expenseName"
+                android:paddingBottom="5dp"
+                android:textSize="24sp"
+                />
+
 
         <TextView
-            android:id="@+id/expenseNameTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:id="@+id/expenseAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expenseNameTV"
+            android:layout_toRightOf="@+id/cardview_image"
+            android:text="Amount :"
+            android:textColor="#8b8b8b"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/expenseAmountTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expenseNameTV"
+            android:layout_toRightOf="@+id/expenseAmount"
+            android:textColor="#8b8b8b" />
+
+        <TextView
+            android:id="@+id/expenseDescription"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/expenseAmountTV"
+            android:layout_toRightOf="@+id/cardview_image"
+            android:text="Description :"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/expenseDescriptionTV"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="4"
-            android:paddingLeft="250dp"
-            >
+            android:layout_below="@+id/expenseAmountTV"
+            android:layout_toRightOf="@+id/expenseDescription" />
 
 
-            <Button
-                android:id="@+id/expenseDeleteBTN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="4"
-                android:text="Delete"
-                android:textAllCaps="false"
-                />
-
-           <!-- <Button
-                android:id="@+id/expenseUpdateBTN"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:text="Update"
-                android:textAllCaps="false"
-                />-->
+        <Button
+            android:layout_below="@id/expenseDescriptionTV"
+            android:id="@+id/expenseDeleteBTN"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete"
+            android:layout_alignParentRight="true"
+            android:textAllCaps="false"
+            />
 
 
-        </LinearLayout>
+    </RelativeLayout>
 
 
 
-    </LinearLayout>
+
+
+
 
 
 
