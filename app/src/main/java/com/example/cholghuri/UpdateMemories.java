@@ -52,6 +52,9 @@ public class UpdateMemories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_update_memories);
 
+        setTitle("Update Memories");
+
+
 
         mStore = FirebaseStorage.getInstance().getReference();
         getDataFromIntent();

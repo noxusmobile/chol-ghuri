@@ -3,6 +3,7 @@ package com.example.cholghuri;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -144,7 +145,7 @@ public class TourList extends AppCompatActivity {
         DatabaseReference tourDB = firebaseDatabase.getReference().child("UserLIst").child(userID).child("TourList");
         // DatabaseReference tourDB = firebaseDatabase.getReference();
 
-        tourDB.addValueEventListener(new ValueEventListener() {
+        tourDB.orderByChild("tourEndDate").startAt(System.currentTimeMillis()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
