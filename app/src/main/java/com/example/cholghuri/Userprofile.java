@@ -135,4 +135,9 @@ public class Userprofile extends AppCompatActivity {
         Intent intent=new Intent(Userprofile.this,TourList.class);
         startActivity(intent);
     }
+
+    public void weatherForecast(View view) {
+        Intent intent= new Intent(Userprofile.this,WeatherForecast.class);
+        startActivity(intent);
+    }
 }
