@@ -9,15 +9,15 @@
         <menu>
             <item
                 android:id="@+id/signoutId"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_signout"
                 android:title="Sign Out" />
             <item
                 android:id="@+id/resetPass"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_confirm_password"
                 android:title="Change Password" />
             <item
                 android:id="@+id/homeId"
-                android:icon="@drawable/ic_menu_camera"
+                android:icon="@drawable/ic_home"
                 android:title="Home" />
 
         </menu>

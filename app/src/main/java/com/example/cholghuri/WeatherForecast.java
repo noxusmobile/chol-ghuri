@@ -1,14 +1,18 @@
 package com.example.cholghuri;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cholghuri.weather.WeatherForecastResponse;
+import com.google.firebase.auth.FirebaseAuth;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -31,6 +35,29 @@ public class WeatherForecast extends AppCompatActivity {
         setTitle("Weather Forecast");
         getWeatherForecastData();
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_layout, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId()==R.id.signoutId){
+            FirebaseAuth.getInstance().signOut();
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+            finish();
+        }if (item.getItemId()==R.id.resetPass){
+            Intent intent=new Intent(getApplicationContext(),ResetPassword.class);
+            startActivity(intent);
+            finish();
+        }
+        if (item.getItemId()==R.id.homeId){
+            Intent intent=new Intent(getApplicationContext(),Userprofile.class);
+            startActivity(intent);
+            finish();}
+        return super.onOptionsItemSelected(item);
     }
 
     private void getWeatherForecastData() {
