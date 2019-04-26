@@ -23,7 +23,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -36,7 +38,13 @@ public class TourList extends AppCompatActivity {
     private TourAdapter tourAdapter;
     private String userID;
     private long fromDateInMS = 0,toDateInMS = 0;
-    private Button dateFrom , dateTo;
+    private Button dateFrom , dateTo ,filter;
+
+    private Calendar calendar = Calendar.getInstance();
+
+
+    SimpleDateFormat dateAndTimeSDF = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+    SimpleDateFormat dateSDF = new SimpleDateFormat("dd MMM yyyy");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +66,8 @@ public class TourList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                opendatepickerFrom();
+
             }
         });
 
@@ -65,6 +75,15 @@ public class TourList extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                opendatepickerTo();
+            }
+        });
+
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                filterByDate(fromDateInMS,toDateInMS);
             }
         });
     }
@@ -101,6 +120,7 @@ public class TourList extends AppCompatActivity {
 
         dateFrom = findViewById(R.id.dateFrom);
         dateTo = findViewById(R.id.dateTo);
+        filter = findViewById(R.id.filterBTN);
 
         tourList = new ArrayList<>();
     }
@@ -161,6 +181,81 @@ public class TourList extends AppCompatActivity {
                 //7999999999999999
 
     }
+
+    private void opendatepickerFrom() {
+
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+
+                String selectDate = year + "/" + month + "/" + dayOfMonth + " 00:00:00";
+                Date date = null;
+
+                try {
+                    date = dateAndTimeSDF.parse(selectDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+                fromDateInMS = date.getTime();
+                dateFrom.setText(dateSDF.format(date));
+
+                // Toast.makeText(getActivity(), "" + selectedDateinMSFrom, Toast.LENGTH_SHORT).show();
+
+
+            }
+
+        };
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, day);
+        datePickerDialog.getDatePicker().setMaxDate(System.currentTimeMillis());
+        datePickerDialog.show();
+
+
+    }
+
+    private void opendatepickerTo() {
+
+        DatePickerDialog.OnDateSetListener onDateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
+                month = month + 1;
+
+                String selectDate = year + "/" + month + "/" + dayOfMonth + " 23:59:59";
+                Date date = null;
+
+                try {
+                    date = dateAndTimeSDF.parse(selectDate);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+
+
+                toDateInMS = date.getTime();
+                dateTo.setText(dateSDF.format(date));
+
+
+            }
+
+        };
+
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH);
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        DatePickerDialog datePickerDialog = new DatePickerDialog(this, onDateSetListener, year, month, day);
+        datePickerDialog.show();
+
+
+    }
+
+
     private void filterByDate(long fromDateInMS,long toDateInMS){
 
             if(toDateInMS < fromDateInMS)
@@ -194,8 +289,10 @@ public class TourList extends AppCompatActivity {
                             }
 
                         } else {
-                            Toast.makeText(TourList.this, "Empty Tour List", Toast.LENGTH_SHORT).show();
+                            tourList.clear();
                             tourAdapter.notifyDataSetChanged();
+                            Toast.makeText(TourList.this, "Empty Tour List", Toast.LENGTH_SHORT).show();
+
 
                         }
                         tourAdapter.notifyDataSetChanged();
@@ -220,46 +317,10 @@ public class TourList extends AppCompatActivity {
 
     }
 
-   /* private void openDatePickerFrom() {
-        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-            @Override
-            public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-
-                month = month + 1;
-                String selectedDate = year + "/" + month + "/" + dayOfMonth + " 00:00:00";
-                try {
-                    date = dateAndTimeSDF.parse(selectedDate);
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
-                selectedFromDateinMS = date.getTime();
-                //msDate=selectedDateinMS;
-                dateFromBtn.setText(dateSDF.format(date));
-
-                if (selectType.equals("")) {
-                    expenseList.clear();
-                    showDataFromDate();
-                    customExpenseAdapter.notifyDataSetChanged();
-
-                }
-                else {
-                    expenseList.clear();
-                    showDataFromDateSpinner();
-                    customExpenseAdapter.notifyDataSetChanged();
-                }
-            }
-
-        };
-        year = calendar.get(calendar.YEAR);
-        month = calendar.get(calendar.MONTH);
-        day = calendar.get(calendar.DAY_OF_MONTH);
-
-        DatePickerDialog datePickerDialog = new DatePickerDialog(getActivity(), dateSetListener, year, month, day);
-
-        datePickerDialog.show();
 
 
 
-    }*/
+
+
 
 }

@@ -18,7 +18,7 @@
 
             android:layout_marginHorizontal="60dp"
             android:paddingTop="10dp"
-            android:weightSum="2">
+            android:weightSum="3">
 
             <Button
                 android:id="@+id/dateFrom"
@@ -39,6 +39,16 @@
                 android:layout_weight="1"
                 android:drawableTint="@color/colorPrimary"
                 android:text="To date"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimary" />
+            <Button
+                android:id="@+id/filterBTN"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="2dp"
+                android:layout_weight="1"
+                android:drawableTint="@color/colorPrimary"
+                android:text="Filter"
                 android:textAllCaps="false"
                 android:textColor="@color/colorPrimary" />
 

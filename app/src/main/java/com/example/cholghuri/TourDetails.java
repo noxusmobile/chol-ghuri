@@ -191,8 +191,10 @@ private void onclick() {
                     }
 
                 } else {
-                    Toast.makeText(TourDetails.this, "Empty Expense List", Toast.LENGTH_SHORT).show();
+                    expenseList.clear();
                     expenseAdapter.notifyDataSetChanged();
+                    Toast.makeText(TourDetails.this, "Empty Expense List", Toast.LENGTH_SHORT).show();
+
                 }
 
             }

@@ -79,8 +79,10 @@ public class ViewMemories extends AppCompatActivity {
                     }
                 }
                 else{
-                    Toast.makeText(ViewMemories.this, "Empty Memories List", Toast.LENGTH_SHORT).show();
+
+                    uploadList.clear();
                     memoryAdapter.notifyDataSetChanged();
+                    Toast.makeText(ViewMemories.this, "Empty Memories List", Toast.LENGTH_SHORT).show();
 
                 }
 
@@ -92,7 +94,7 @@ public class ViewMemories extends AppCompatActivity {
               //  progress_circular.setVisibility(recyclerViewId.INVISIBLE);
             }
         });
-        memoryAdapter.notifyDataSetChanged();
+
 
 
     }
