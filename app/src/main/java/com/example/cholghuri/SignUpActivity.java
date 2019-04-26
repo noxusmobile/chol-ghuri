@@ -20,23 +20,34 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SignUpActivity extends AppCompatActivity {
 
     private Button btnLogin,btnSignup,button3;
     private EditText editText,editText2,editText3;
     private FirebaseAuth mAuth;
+
+
+
+
+    private FirebaseDatabase mDatabase;
+    private String email;
+    String userID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
         this.setTitle("Sign Up");
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance();
         btnLogin=(Button)findViewById(R.id.btnLogin);
         btnSignup=(Button)findViewById(R.id.btnSignup);
         editText=findViewById(R.id.editText);
         editText2=findViewById(R.id.editText2);
         editText3=findViewById(R.id.editText3);
+
 
         button3=findViewById(R.id.button3);
 
@@ -59,7 +70,8 @@ button3.setOnClickListener(new View.OnClickListener() {
     private void userregister() {
     String  password=editText2.getText().toString().trim();
     String  confpassword=editText3.getText().toString().trim();
-    String  email=editText.getText().toString().trim();
+
+    email=editText.getText().toString().trim();
   /*  String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";*/
 
         if(email.isEmpty())
@@ -104,10 +116,9 @@ button3.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onComplete(@NonNull Task<AuthResult> task) {
           if (task.isSuccessful()){
-              finish();
-              Intent intent=new Intent(getApplicationContext(),Userprofile.class);
-              intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-              startActivity(intent);
+              userID = mAuth.getCurrentUser().getUid();
+              sendUserDataToDatabase(new User(email));
+
           } else {
              /* Toast.makeText(SignUpActivity.this, "Already Register", Toast.LENGTH_SHORT).show();*/
               showToast();
@@ -118,6 +129,27 @@ button3.setOnClickListener(new View.OnClickListener() {
 
 
   });}
+
+    private void sendUserDataToDatabase(User user) {
+
+        DatabaseReference databaseReference = mDatabase.getReference().child("UserLIst").child(userID);
+
+        user.setUserID(userID);
+
+        databaseReference.setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                finish();
+                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                Toast.makeText(SignUpActivity.this, "Account Created", Toast.LENGTH_LONG).show();
+            }
+        });
+
+
+    }
+
     private void showToast() {
         LayoutInflater inflater=getLayoutInflater();
         View layout=inflater.inflate(R.layout.custom_toast,(ViewGroup)findViewById(R.id.toast_root));

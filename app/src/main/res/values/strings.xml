@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">LoginScreenDemo</string>
+    <string name="app_name">Chol Ghuri</string>
     <string name="title_activity_location_map">Map</string>
     <string name="title_activity_navigation__drawer">Navigation_Drawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
