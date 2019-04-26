@@ -14,8 +14,8 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_gravity="center_horizontal"
-        android:background="@drawable/ic_image_black_24dp"
-        android:backgroundTint="@color/white"/>
+        android:background="@drawable/ic_image_white_24dp"
+        />
 
     <!-- <Button
          android:id="@+id/memoriesTakePicture"

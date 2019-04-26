@@ -63,7 +63,7 @@ public class UpdateMemories extends AppCompatActivity {
     private void setDataFromIntent() {
 
         memoriesCaption.setText(Caption);
-        Picasso.with(this).load(UploadURI).placeholder(R.mipmap.ic_launcher_round).into(memoriesPic);
+        Picasso.with(this).load(UploadURI).placeholder(R.drawable.ic_image_white_24dp).into(memoriesPic);
 
       //  imageUri = UploadURI;
 
