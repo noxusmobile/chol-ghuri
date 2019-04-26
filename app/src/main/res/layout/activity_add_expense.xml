@@ -67,7 +67,8 @@
             android:hint="Amount"
             android:inputType="number"
             android:padding="10dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:imeOptions="actionDone"/>
 
     </android.support.design.widget.TextInputLayout>
 
@@ -83,11 +84,10 @@
         android:layout_marginTop="50dp"
         android:layout_marginBottom="20dp"
         android:layout_marginHorizontal="50dp"
-        android:text="Add EXPENSE"
+        android:text="Add Expense"
         android:textSize="16sp"
 
-
-        android:textAllCaps="true"
+        android:textAllCaps="false"
         android:background="@drawable/bgbtn"
 
         />

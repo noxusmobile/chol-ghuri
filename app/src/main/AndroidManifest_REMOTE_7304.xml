@@ -9,32 +9,26 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permisson.READ_GSERVICES"/>
 
     <application
+
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
+        android:usesCleartextTraffic="true"
         android:label="Chol-Ghuri"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
-        <activity android:name=".WeatherForecast"></activity>
-        <activity android:name=".UpdateMemories" />
+        android:theme="@style/AppTheme">
+        <activity android:name=".UpdateMemories"></activity>
         <activity android:name=".ViewMemories" />
         <activity android:name=".AddMemories" />
         <activity android:name=".TourDetails" />
         <activity android:name=".ResetPassword" />
         <activity android:name=".UpdateTour" />
         <activity android:name=".AddExpense" />
-
-        <activity
-            android:name=".MainActivity"
-            android:theme="@style/AppTheme2" />
-        <activity android:name=".AddTour" />
-
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme2"/>
         <activity android:name=".AddTour"
@@ -75,9 +69,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".SignUpActivity"
-            android:theme="@style/AppTheme2" />
+        <activity android:name=".SignUpActivity"
+            android:theme="@style/AppTheme2"/>
+
     </application>
 
 </manifest>

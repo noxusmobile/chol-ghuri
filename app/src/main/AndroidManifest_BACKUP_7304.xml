@@ -29,16 +29,17 @@
         <activity android:name=".ResetPassword" />
         <activity android:name=".UpdateTour" />
         <activity android:name=".AddExpense" />
-
+<<<<<<< HEAD
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme2" />
         <activity android:name=".AddTour" />
-
+=======
         <activity android:name=".MainActivity"
             android:theme="@style/AppTheme2"/>
         <activity android:name=".AddTour"
             android:theme="@style/AppTheme"/>
+>>>>>>> fbbb30bf22050fe1f131db3a30575e3c65ff7bb3
         <activity
             android:name=".TourList"
             android:theme="@style/AppTheme" />

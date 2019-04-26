@@ -39,6 +39,7 @@ public class AddExpense extends AppCompatActivity {
     private int budget;
     private int totalExpense = 0;
     private int temp;
+    private int ExpenseAmount;
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -134,26 +135,35 @@ public class AddExpense extends AppCompatActivity {
                 String ExpenseTitle = addExpenseTitleET.getText().toString();
                 String ExpenseDetails = addExpenseDetailsET.getText().toString();
                 String temp = addExpenseAmountET.getText().toString();
-                int ExpenseAmount = Integer.valueOf(temp);
 
 
+                if(ExpenseTitle.isEmpty())
+                {
+                    addExpenseTitleET.setError("Enter Expense title");
+                    addExpenseTitleET.requestFocus();
+                    return;
+                }
+                if( ExpenseDetails.isEmpty())
+                {
+                    addExpenseDetailsET.setError("Enter Tour Details");
+                    addExpenseDetailsET.requestFocus();
+                    return;
+                }
+                if( temp.isEmpty())
+                {
+                    addExpenseAmountET.setError("Enter Tour Budget");
+                    addExpenseAmountET.requestFocus();
+                    return;
+                }
+                else{
+                    ExpenseAmount = Integer.valueOf(temp);
                 int tempExpense = totalExpense;
 
                 tempExpense = tempExpense + ExpenseAmount;
                 if (tempExpense >= budget) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(AddExpense.this);
                     alert.setTitle("Add Expense");
-/*
-                    alert.setMessage("Expense is exciding Budget. Would u like to update Budget ?");
-*/
                     alert.setMessage("Expense is exciding Budget.");
-                 /*   alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-
-                    });*/
                     alert.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -167,7 +177,7 @@ public class AddExpense extends AppCompatActivity {
                     sendExpenseDataToDatabase(new Expense(ExpenseTitle, ExpenseDetails, ExpenseAmount));
                 }
 
-            }
+            }}
         });
 
 

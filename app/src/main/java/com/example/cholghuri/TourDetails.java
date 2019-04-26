@@ -50,6 +50,8 @@ public class TourDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tour_details);
 
+        setTitle("Tour Details");
+
 
         initialize();
         onclick();

@@ -62,7 +62,8 @@
             android:hint="Amount"
             android:inputType="number"
             android:padding="10dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:imeOptions="actionDone"/>
 
     </android.support.design.widget.TextInputLayout>
 

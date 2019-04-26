@@ -106,19 +106,67 @@ public class AddTour extends Activity {
                 String TourTitle = addTourTitleET.getText().toString();
                 String TourDetails = addTourDetailsET.getText().toString();
                 String temp = addTourAmountET.getText().toString();
-                int TourAmount = Integer.valueOf(temp);
+
+
 
 
                 /*=======Validation under construction============*/
-
+                if(TourTitle.isEmpty())
+                {
+                    addTourTitleET.setError("Enter an email address");
+                    addTourTitleET.requestFocus();
+                    return;
+                }
+                if( TourDetails.isEmpty())
+                {
+                    addTourDetailsET.setError("Enter an email address");
+                    addTourDetailsET.requestFocus();
+                    return;
+                }
+                if( temp.isEmpty())
+                {
+                    addTourAmountET.setError("Enter an email address");
+                    addTourAmountET.requestFocus();
+                    return;
+                }
 /*
                 validate(TourTitle,TourDetails,temp,selectedDateinFromMS,selectedDateinToMS);
 */
                 /*=======Validation under construction============*/
 
+                if(TourTitle.isEmpty())
+                {
+                    addTourTitleET.setError("Enter Tour title");
+                    addTourTitleET.requestFocus();
+                    return;
+                }
+                if( TourDetails.isEmpty())
+                {
+                    addTourDetailsET.setError("Enter Tour Details");
+                    addTourDetailsET.requestFocus();
+                    return;
+                }
+                if( temp.isEmpty())
+                {
+                    addTourAmountET.setError("Enter Tour Budget");
+                    addTourAmountET.requestFocus();
+                    return;
+                }
+                if(selectedDateinFromMS == 0)
+                {
+                    Toast.makeText(AddTour.this, "Enter Tour start date", Toast.LENGTH_SHORT).show();
+                }
+                if(selectedDateinToMS == 0 )
+                {
+                    Toast.makeText(AddTour.this, "Enter Tour end date", Toast.LENGTH_SHORT).show();
 
-                sendTourDataToDatabase(new Tour(TourTitle,TourDetails,TourAmount,selectedDateinFromMS,selectedDateinToMS));
+                }
 
+                else {
+
+                    int TourAmount = Integer.valueOf(temp);
+                    sendTourDataToDatabase(new Tour(TourTitle, TourDetails, TourAmount, selectedDateinFromMS, selectedDateinToMS));
+                }
                 // Toast.makeText(AddTour.this, ""+userID, Toast.LENGTH_SHORT).show();
 
             }
@@ -182,6 +230,7 @@ public class AddTour extends Activity {
         String Id = databaseReference.push().getKey();
 
         tour.setTourID(Id);
+
         databaseReference.child(Id).setValue(tour).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -191,6 +240,7 @@ public class AddTour extends Activity {
                     Toast.makeText(AddTour.this, "Tour Added", Toast.LENGTH_LONG).show();
                     finish();
                 }
+
             }
         });
     }
