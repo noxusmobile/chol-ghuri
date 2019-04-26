@@ -15,4 +15,5 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+    <string name="weather_key">df413cb22ed6dd971d35b6ded2e5f020</string>
 </resources>

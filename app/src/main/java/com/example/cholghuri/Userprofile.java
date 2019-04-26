@@ -8,14 +8,30 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.cholghuri.weather.WeatherForecastResponse;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.squareup.picasso.Picasso;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Userprofile extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseUser firebaseUser;
     private Button signoutBtn;
+    private WeatherForecastResponse weatherForecastResponseList;
+    private TextView tempTV,windTV,humidityTV,pressureTV,weatherTypeTV;
+    private ImageView weatherIconIV;
+    private double lat=23.7508671;
+    private double lon=90.3913638;
+    int temp,pressure;
+    private String units="metric";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +47,50 @@ public class Userprofile extends AppCompatActivity {
 
 
         });*/
+
+        tempTV=findViewById(R.id.tempTVID);
+        windTV=findViewById(R.id.windTVID);
+        humidityTV=findViewById(R.id.humidityTVID);
+        pressureTV=findViewById(R.id.pressureTVID);
+        weatherTypeTV=findViewById(R.id.weatherTypeTVID);
+
+        weatherIconIV=findViewById(R.id.weatherIconIVID);
+        getWeatherUpdate();
+
+    }
+    private void getWeatherUpdate() {
+        Weather_service weatherService= RetrofitClass.getRetrofitInstance().create(Weather_service.class);
+        String url = String.format("forecast?lat=%f&lon=%f&units=%s&appid=%s",lat,lon,units,getResources().getString(R.string.weather_key));
+        Call<WeatherForecastResponse> weatherForecastResponseCall=weatherService.getWeatherForecastData(url);
+        weatherForecastResponseCall.enqueue(new Callback<WeatherForecastResponse>() {
+            @Override
+            public void onResponse(Call<WeatherForecastResponse> call, Response<WeatherForecastResponse> response) {
+                if(response.code()==200){
+                    weatherForecastResponseList=response.body();
+                    weatherTypeTV.setText(weatherForecastResponseList.getList().get(0).weather.get(0).getDescription());
+                    temp=(int)Math.round(weatherForecastResponseList.getList().get(0).getMain().getTemp());
+                    tempTV.setText(temp+" °C");
+
+                    Picasso.with(Userprofile.this).load(new StringBuilder("https://openweathermap.org/img/w/")
+                            .append(weatherForecastResponseList.getList().get(0).weather.get(0).getIcon())
+                            .append(".png").toString()).into(weatherIconIV);
+
+                    windTV.setText(weatherForecastResponseList.getList().get(0).wind.getSpeed()+ " m/s");
+                    humidityTV.setText(weatherForecastResponseList.getList().get(0).getMain().getHumidity()+" %");
+                    //converting pressure from double to int
+                    pressure=(int)Math.round(weatherForecastResponseList.getList().get(0).getMain().getPressure());
+                    pressureTV.setText(pressure+" hPa");
+
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<WeatherForecastResponse> call, Throwable t) {
+                Toast.makeText(Userprofile.this,t.getMessage(), Toast.LENGTH_SHORT).show();
+
+            }
+        });
 
     }
 

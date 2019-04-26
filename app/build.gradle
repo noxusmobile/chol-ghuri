@@ -44,6 +44,8 @@ dependencies {
     implementation "com.google.firebase:firebase-database:$firebaseVersion"
     implementation "com.google.firebase:firebase-storage:$firebaseVersion"
     implementation 'com.squareup.picasso:picasso:2.5.2'
+    implementation 'com.squareup.retrofit2:retrofit:2.5.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.5.0'
 
 }
 apply plugin: 'com.google.gms.google-services'
