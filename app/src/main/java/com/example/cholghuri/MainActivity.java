@@ -36,16 +36,7 @@ public class MainActivity extends AppCompatActivity {
         editText2=findViewById(R.id.editText2);
         textView5=findViewById(R.id.textView5);
         button3=findViewById(R.id.button3);
-        locationMapBtn=findViewById(R.id.locationMapBtn);
 
-
-        locationMapBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent2= new Intent(MainActivity.this,LocationMap.class);
-                startActivity(intent2);
-            }
-        });
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override

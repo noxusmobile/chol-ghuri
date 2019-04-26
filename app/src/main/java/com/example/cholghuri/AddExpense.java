@@ -163,17 +163,7 @@ public class AddExpense extends AppCompatActivity {
                 if (tempExpense >= budget) {
                     AlertDialog.Builder alert = new AlertDialog.Builder(AddExpense.this);
                     alert.setTitle("Add Expense");
-/*
-                    alert.setMessage("Expense is exciding Budget. Would u like to update Budget ?");
-*/
                     alert.setMessage("Expense is exciding Budget.");
-                 /*   alert.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-
-                        }
-
-                    });*/
                     alert.setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
