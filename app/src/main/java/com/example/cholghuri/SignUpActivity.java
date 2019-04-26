@@ -25,7 +25,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-        this.setTitle("Signup");
+        this.setTitle("Sign Up");
         mAuth = FirebaseAuth.getInstance();
         btnLogin=(Button)findViewById(R.id.btnLogin);
         btnSignup=(Button)findViewById(R.id.btnSignup);

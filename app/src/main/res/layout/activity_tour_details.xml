@@ -49,12 +49,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal">
             
-            <Button
-                android:id="@+id/addExpenseActivityBTN"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Add expense"
-                android:textAllCaps="false"/>
+
             <Button
                 android:id="@+id/addMemoriesBTN"
                 android:layout_width="wrap_content"
@@ -87,5 +82,20 @@
         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/addExpanseFAB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="end|bottom"
+        android:layout_marginEnd="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginBottom="65dp"
+        android:clickable="true"
+        android:src="@drawable/ic_attach_money_black_24dp"
+        app:maxImageSize="40dp"
+        android:onClick="addExpense"/>
 
 </RelativeLayout>

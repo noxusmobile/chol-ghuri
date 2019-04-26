@@ -20,6 +20,10 @@ public class Userprofile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_userprofile);
+
+        setTitle("Home");
+
+
         mAuth=FirebaseAuth.getInstance();
         firebaseUser=mAuth.getCurrentUser();
         signoutBtn=findViewById(R.id.signoutBtn);

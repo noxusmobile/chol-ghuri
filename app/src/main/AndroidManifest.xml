@@ -25,7 +25,8 @@
         <activity android:name=".ResetPassword" />
         <activity android:name=".UpdateTour" />
         <activity android:name=".AddExpense" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/AppTheme2"/>
         <activity android:name=".AddTour" />
         <activity
             android:name=".TourList"

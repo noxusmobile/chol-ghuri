@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -35,6 +36,10 @@ public class ViewMemories extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_memories);
+
+        setTitle("View Memories");
+
+
         recyclerViewId = findViewById(R.id.memoriesRecycler);
         uploadList = new ArrayList<>();
         firebaseDatabase = FirebaseDatabase.getInstance();
@@ -87,9 +92,16 @@ public class ViewMemories extends AppCompatActivity {
               //  progress_circular.setVisibility(recyclerViewId.INVISIBLE);
             }
         });
+        memoryAdapter.notifyDataSetChanged();
 
 
     }
 
+    public void addMemories(View view) {
+
+        Intent intent = new Intent(ViewMemories.this, AddMemories.class);
+        intent.putExtra("tourID",tourID);
+        startActivity(intent);
+    }
 }
 

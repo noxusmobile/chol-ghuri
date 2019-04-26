@@ -34,6 +34,8 @@ public class LocationMap extends FragmentActivity implements OnMapReadyCallback 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_map);
 
+
+
         geocoder = new Geocoder(LocationMap.this);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = SupportMapFragment.newInstance();

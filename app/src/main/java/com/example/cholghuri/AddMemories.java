@@ -56,6 +56,7 @@ public class AddMemories extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_memories);
 
+        setTitle("Add Memories");
 
         mStore = FirebaseStorage.getInstance().getReference();
         getDataFromIntent();
@@ -198,6 +199,8 @@ public class AddMemories extends AppCompatActivity {
                                     String uploadId = reference.push().getKey();
                                     upload.setUploadID(uploadId);
                                     reference.child(uploadId).setValue(upload);
+
+                                    finish();
 
                                 }
                             });

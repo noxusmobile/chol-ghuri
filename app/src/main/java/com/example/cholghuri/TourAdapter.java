@@ -228,13 +228,8 @@ public class TourAdapter extends RecyclerView.Adapter<TourAdapter.ViewHolder> {
             tripNameTV = itemView.findViewById(R.id.tripNameTV);
             tripDescriptionTV = itemView.findViewById(R.id.tripDescriptionTV);
             tripAmountTV = itemView.findViewById(R.id.tripAmountTV);
-            /*tripDetailsBTN = itemView.findViewById(R.id.tripDetailsBTN);
-            tripMomentsBTN = itemView.findViewById(R.id.tripMomentsBTN);
-            tripDeleteBTN = itemView.findViewById(R.id.tripDeleteBTN);
-            tripUpdateBTN=itemView.findViewById(R.id.tripUpdateBTN);
-            addExpenseActivityBTN=itemView.findViewById(R.id.addExpenseActivityBTN);*/
             cardView = itemView.findViewById(R.id.cardview);
-            menuecard=itemView.findViewById(R.id.cardview_image);
+            menuecard=itemView.findViewById(R.id.menuecard);
         }
     }
 
