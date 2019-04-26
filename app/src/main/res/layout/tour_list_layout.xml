@@ -10,8 +10,8 @@
     <RelativeLayout
         android:id="@+id/relative1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
+        android:layout_height="150dp"
+        android:background="@drawable/background_grad"
         android:elevation="4dp"
         android:padding="16dp">
 
@@ -39,7 +39,8 @@
                 android:text="Title :"
                 android:textSize="24sp"
                 android:textStyle="bold"
-                android:layout_weight=".5"/>
+                android:layout_weight=".5"
+                android:textColor="#c5c954"/>
             <TextView
                 android:id="@+id/tripNameTV"
                 android:layout_width="wrap_content"
@@ -48,13 +49,14 @@
                 android:layout_toRightOf="@+id/tripName"
                 android:paddingBottom="5dp"
                 android:textSize="24sp"
-                android:layout_weight="9"/>
+                android:layout_weight="9"
+                android:textColor="#53bbc5"
+                />
 
             <ImageView
                 android:id="@+id/menuecard"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                 android:layout_alignParentTop="true"
                 android:layout_weight=".5"
                 android:src="@drawable/menuec" />
@@ -69,7 +71,7 @@
             android:layout_below="@+id/tripNameTVholder"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Amount :"
-            android:textColor="#8b8b8b"
+            android:textColor="#c5c954"
             android:textStyle="bold" />
 
         <TextView
@@ -78,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/tripNameTVholder"
             android:layout_toRightOf="@+id/tripAmount"
-            android:textColor="#8b8b8b" />
+            android:textColor="#53bbc5" />
 
         <TextView
             android:id="@+id/tripDescription"
@@ -87,14 +89,16 @@
             android:layout_below="@+id/tripAmountTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Description :"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#c5c954"/>
 
         <TextView
             android:id="@+id/tripDescriptionTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/tripAmountTV"
-            android:layout_toRightOf="@+id/tripDescription" />
+            android:layout_toRightOf="@+id/tripDescription"
+            android:textColor="#53bbc5"/>
 
 
         <LinearLayout

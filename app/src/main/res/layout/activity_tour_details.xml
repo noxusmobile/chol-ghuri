@@ -5,16 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".TourDetails"
-    android:background="@drawable/background_grad">
+    android:padding="10dp"
+    >
 
     <RelativeLayout
         android:id="@+id/tourDetailsHolder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="150dp"
 
         android:elevation="4dp"
         android:padding="16dp"
-        android:background="#ffff">
+        android:background="@drawable/background_grad">
 
             <TextView
                 android:id="@+id/TourTitle"
@@ -26,6 +27,7 @@
                 android:text="Title :"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:textColor="#c5c954"
                />
             <TextView
                 android:id="@+id/TourTitleTV"
@@ -47,7 +49,7 @@
             android:layout_below="@+id/TourTitleTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Amount :"
-            android:textColor="#8b8b8b"
+            android:textColor="#c5c954"
             android:textStyle="bold" />
 
         <TextView
@@ -56,7 +58,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/TourTitleTV"
             android:layout_toRightOf="@+id/TourAmount"
-            android:textColor="#8b8b8b" />
+            android:textColor="#53bbc5" />
 
         <TextView
             android:id="@+id/TourDateFrom"
@@ -65,14 +67,15 @@
             android:layout_below="@+id/TourAmountTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Tour Start Date :"
-            android:textColor="#8b8b8b"
+            android:textColor="#c5c954"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/fromDateTourTV"
             android:layout_below="@id/TourAmountTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/TourDateFrom"/>
+            android:layout_toRightOf="@+id/TourDateFrom"
+            android:textColor="#53bbc5"/>
         <TextView
             android:id="@+id/TourDateTo"
             android:layout_width="wrap_content"
@@ -80,14 +83,15 @@
             android:layout_below="@+id/fromDateTourTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Tour End Date :"
-            android:textColor="#8b8b8b"
+            android:textColor="#c5c954"
             android:textStyle="bold" />
         <TextView
             android:id="@+id/toDateTourTV"
             android:layout_below="@id/fromDateTourTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@+id/TourDateTo"/>
+            android:layout_toRightOf="@+id/TourDateTo"
+            android:textColor="#53bbc5" />
 
 
         <TextView
@@ -97,14 +101,17 @@
             android:layout_below="@+id/toDateTourTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Description :"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#c5c954"/>
 
         <TextView
             android:id="@+id/TourDetailsTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/toDateTourTV"
-            android:layout_toRightOf="@+id/TourDetails" />
+            android:layout_toRightOf="@+id/TourDetails"
+            android:textColor="#53bbc5"
+            />
 
 
         <LinearLayout
@@ -134,7 +141,10 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp">
             
 
             <Button
@@ -143,13 +153,19 @@
                 android:layout_height="wrap_content" 
                 android:text="Add Memories"
                 android:textAllCaps="false"
+                android:background="@drawable/bgbtn"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
                 />
             <Button
                 android:id="@+id/viewMemoriesBTN"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="View Memories"
-                android:textAllCaps="false"/>
+                android:textAllCaps="false"
+                android:background="@drawable/bgbtn"
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"/>
             
         </LinearLayout>
         
@@ -184,6 +200,7 @@
         android:clickable="true"
         android:src="@drawable/ic_attach_money_black_24dp"
         app:maxImageSize="40dp"
-        android:onClick="addExpense"/>
+        android:onClick="addExpense"
+        android:backgroundTint="#A8739E"/>
 
 </RelativeLayout>

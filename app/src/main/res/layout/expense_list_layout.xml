@@ -10,8 +10,8 @@
     <RelativeLayout
         android:id="@+id/relative1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#fff"
+        android:layout_height="150dp"
+        android:background="@drawable/background_grad"
         android:elevation="4dp"
         android:padding="16dp">
 
@@ -26,6 +26,7 @@
                 android:text="Expense Title :"
                 android:textSize="24sp"
                 android:textStyle="bold"
+                android:textColor="#c5c954"
                 />
             <TextView
                 android:id="@+id/expenseNameTV"
@@ -35,6 +36,7 @@
                 android:layout_toRightOf="@+id/expenseName"
                 android:paddingBottom="5dp"
                 android:textSize="24sp"
+                android:textColor="#53bbc5"
                 />
 
 
@@ -45,7 +47,7 @@
             android:layout_below="@+id/expenseNameTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Amount :"
-            android:textColor="#8b8b8b"
+            android:textColor="#c5c954"
             android:textStyle="bold" />
 
         <TextView
@@ -54,7 +56,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/expenseNameTV"
             android:layout_toRightOf="@+id/expenseAmount"
-            android:textColor="#8b8b8b" />
+            android:textColor="#53bbc5"/>
 
         <TextView
             android:id="@+id/expenseDescription"
@@ -63,24 +65,28 @@
             android:layout_below="@+id/expenseAmountTV"
             android:layout_toRightOf="@+id/cardview_image"
             android:text="Description :"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:textColor="#c5c954"/>
 
         <TextView
             android:id="@+id/expenseDescriptionTV"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/expenseAmountTV"
-            android:layout_toRightOf="@+id/expenseDescription" />
+            android:layout_toRightOf="@+id/expenseDescription"
+            android:textColor="#53bbc5"/>
 
 
         <Button
             android:layout_below="@id/expenseDescriptionTV"
             android:id="@+id/expenseDeleteBTN"
-            android:layout_width="wrap_content"
+            android:layout_width="80dp"
             android:layout_height="wrap_content"
             android:text="Delete"
+            android:textAlignment="center"
             android:layout_alignParentRight="true"
             android:textAllCaps="false"
+            android:background="@drawable/bgbtn"
             />
 
 
