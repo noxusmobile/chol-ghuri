@@ -167,14 +167,14 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/weatherForcastBtn"
+        android:id="@+id/weatherForecastBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="250dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/loginbuttonshape"
-        android:onClick="WeatherForcast"
+        android:onClick="weatherForecast"
         android:text="Weather forcast"
         android:paddingHorizontal="30dp"
         android:paddingVertical="20dp"
@@ -215,14 +215,6 @@
         android:paddingVertical="20dp"
         android:onClick="nextActivity"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.43" />
-
-
-
-
+        app:layout_constraintEnd_toEndOf="parent" />
 
 </RelativeLayout>

@@ -9,4 +9,11 @@
     <color name="Blue">#0000ff</color>
     <color name="Black">#000000</color>
     <color name="Shadow">#636060</color>
+    <color name="White">#FFFFFF</color>
+    <color name="LightSky">#9CB8CC</color>
+    <color name="DeepOcean">#2E8EDF</color>
+    <color name="FountainBlue">#A0E6EE</color>
+    <color name="turmic">#c5c954</color>
+    <color name="indigo">#625BD4</color>
+    <color name="bouquet">#AD7599</color>
 </resources>
