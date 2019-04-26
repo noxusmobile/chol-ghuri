@@ -109,8 +109,26 @@ public class AddTour extends Activity {
                 int TourAmount = Integer.valueOf(temp);
 
 
-                /*=======Validation under construction============*/
 
+                /*=======Validation under construction============*/
+                if(TourTitle.isEmpty())
+                {
+                    addTourTitleET.setError("Enter an email address");
+                    addTourTitleET.requestFocus();
+                    return;
+                }
+                if( TourDetails.isEmpty())
+                {
+                    addTourDetailsET.setError("Enter an email address");
+                    addTourDetailsET.requestFocus();
+                    return;
+                }
+                if( temp.isEmpty())
+                {
+                    addTourAmountET.setError("Enter an email address");
+                    addTourAmountET.requestFocus();
+                    return;
+                }
 /*
                 validate(TourTitle,TourDetails,temp,selectedDateinFromMS,selectedDateinToMS);
 */
@@ -182,6 +200,7 @@ public class AddTour extends Activity {
         String Id = databaseReference.push().getKey();
 
         tour.setTourID(Id);
+
         databaseReference.child(Id).setValue(tour).addOnCompleteListener(new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull Task<Void> task) {
@@ -191,6 +210,7 @@ public class AddTour extends Activity {
                     Toast.makeText(AddTour.this, "Tour Added", Toast.LENGTH_LONG).show();
                     finish();
                 }
+
             }
         });
     }
