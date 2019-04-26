@@ -9,34 +9,119 @@
     <RelativeLayout
         android:id="@+id/tourDetailsHolder"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="#fff"
+        android:elevation="4dp"
+        android:padding="16dp">
+
+            <TextView
+                android:id="@+id/TourTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/cardview_image"
+                android:paddingBottom="5dp"
+                android:text="Title :"
+                android:textSize="24sp"
+                android:textStyle="bold"
+               />
+            <TextView
+                android:id="@+id/TourTitleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/TourTitle"
+                android:paddingBottom="5dp"
+                android:textSize="24sp"
+               />
+
+
+
 
         <TextView
-            android:id="@+id/TourTitleTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <TextView
-            android:id="@+id/TourDetailsTV"
-            android:layout_below="@id/TourTitleTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:id="@+id/TourAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TourTitleTV"
+            android:layout_toRightOf="@+id/cardview_image"
+            android:text="Amount :"
+            android:textColor="#8b8b8b"
+            android:textStyle="bold" />
+
         <TextView
             android:id="@+id/TourAmountTV"
-            android:layout_below="@id/TourDetailsTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TourTitleTV"
+            android:layout_toRightOf="@+id/TourAmount"
+            android:textColor="#8b8b8b" />
+
+        <TextView
+            android:id="@+id/TourDateFrom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/TourAmountTV"
+            android:layout_toRightOf="@+id/cardview_image"
+            android:text="Tour Start Date :"
+            android:textColor="#8b8b8b"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/fromDateTourTV"
             android:layout_below="@id/TourAmountTV"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/TourDateFrom"/>
+        <TextView
+            android:id="@+id/TourDateTo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/fromDateTourTV"
+            android:layout_toRightOf="@+id/cardview_image"
+            android:text="Tour End Date :"
+            android:textColor="#8b8b8b"
+            android:textStyle="bold" />
         <TextView
             android:id="@+id/toDateTourTV"
             android:layout_below="@id/fromDateTourTV"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/TourDateTo"/>
+
+
+        <TextView
+            android:id="@+id/TourDetails"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toDateTourTV"
+            android:layout_toRightOf="@+id/cardview_image"
+            android:text="Description :"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/TourDetailsTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toDateTourTV"
+            android:layout_toRightOf="@+id/TourDetails" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tripDescriptionTV"
+            android:orientation="horizontal"
+            android:weightSum="10">
+
+
+
+
+
+        </LinearLayout>
 
     </RelativeLayout>
+
+
+
     
     <RelativeLayout
         android:id="@+id/btnHolder"
@@ -82,6 +167,7 @@
         android:layout_height="wrap_content"></android.support.v7.widget.RecyclerView>
 
 </RelativeLayout>
+
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/addExpanseFAB"
         android:layout_width="wrap_content"
