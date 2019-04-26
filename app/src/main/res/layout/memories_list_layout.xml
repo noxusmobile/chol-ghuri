@@ -6,14 +6,16 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:background="@drawable/background_grad">
 
       <ImageView
           android:id="@+id/memoriesPic"
           android:layout_width="match_parent"
           android:layout_height="200dp"
           android:src="@drawable/ic_launcher_foreground"
+          android:layout_margin="20dp"
           />
 
         <LinearLayout
