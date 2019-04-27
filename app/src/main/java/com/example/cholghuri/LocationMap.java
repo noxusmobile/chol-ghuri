@@ -20,6 +20,7 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -43,6 +44,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import java.io.IOException;
 import java.util.List;
 
+import retrofit2.http.Url;
+
 public class LocationMap extends FragmentActivity implements
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
@@ -53,14 +56,20 @@ public class LocationMap extends FragmentActivity implements
     private Geocoder geocoder;
     private GoogleApiClient googleApiClient;
     private LocationRequest locationRequest;
+    private double latitude,longitude;
     private Location lastLocation;
     private Marker currentUserLocationMarker;
+    private ImageButton schoolsIB,hospitalsIB,restaurantsIB;
+    private int ProximityRadious=10000;
     private static final int Request_User_Location_Code =99;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_location_map);
+        schoolsIB=findViewById(R.id.schoolsIB);
+        hospitalsIB=findViewById(R.id.hospitalsIB);
+        restaurantsIB=findViewById(R.id.restaurantsIB);
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
             checkUserLocationPermission();
         }
@@ -152,6 +161,8 @@ public class LocationMap extends FragmentActivity implements
 
     @Override
     public void onLocationChanged(Location location) {
+        latitude=location.getLatitude();
+        longitude=location.getLongitude();
         lastLocation=location;
         if(currentUserLocationMarker!=null){
             currentUserLocationMarker.remove();
@@ -200,6 +211,13 @@ public class LocationMap extends FragmentActivity implements
     }
 
     public void searchLocation(View view) {
+        String hospital="hospital", school= "school", restaurant="restaurant";
+        Object transferData[]= new Object[2];
+        GetNearbyPlaces getNearbyPlaces= new GetNearbyPlaces();
+
+
+
+
         switch (view.getId()){
             case R.id.searchLocationIB:
                 EditText addressField= (EditText)findViewById(R.id.searchLocationET);
@@ -238,7 +256,57 @@ public class LocationMap extends FragmentActivity implements
                     Toast.makeText(this, "Please write any location name", Toast.LENGTH_SHORT).show();
 
                 }
+                break;
+
+            case R.id.hospitalsIB:
+                mMap.clear();
+                String url =getUrl(latitude,longitude,hospital);
+                transferData[0]=mMap;
+                transferData[1]=url;
+                getNearbyPlaces.execute(transferData);
+                Toast.makeText(this, "Searching for Nearby Hospital", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Showing Nearby Hospital..", Toast.LENGTH_SHORT).show();
+
+                break;
+
+            case R.id.schoolsIB:
+                mMap.clear();
+                String url2 =getUrl(latitude,longitude,school);
+                transferData[0]=mMap;
+                transferData[1]=url2;
+                getNearbyPlaces.execute(transferData);
+                Toast.makeText(this, "Searching for Nearby Schools", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Showing Nearby Schools..", Toast.LENGTH_SHORT).show();
+
+                break;
+
+            case R.id.restaurantsIB:
+                mMap.clear();
+                String url3 =getUrl(latitude,longitude,restaurant);
+                transferData[0]=mMap;
+                transferData[1]=url3;
+                getNearbyPlaces.execute(transferData);
+                Toast.makeText(this, "Searching for Nearby Restaurants", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Showing Nearby Restaurants..", Toast.LENGTH_SHORT).show();
+
+                break;
         }
+    }
+    private String getUrl(double latitude,double longitude,String nearbyPlace){
+        StringBuilder googleURL = new StringBuilder("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?");
+        googleURL.append("location=" +latitude+ ","+longitude);
+        googleURL.append("&radious=" +ProximityRadious);
+        googleURL.append("&type="+nearbyPlace);
+        googleURL.append("&sensor=true");
+        googleURL.append("&key="+"AIzaSyB9rSETXdUiSqp6-y_3CY64B35obpMY9ew");
+
+        Log.d("LocationMap","url = " +googleURL.toString());
+
+
+        return googleURL.toString();
+
+
+
     }
 }
 

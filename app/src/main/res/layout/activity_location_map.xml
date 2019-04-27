@@ -54,6 +54,7 @@
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
             android:layout_marginLeft="60dp"
+            android:onClick="searchLocation"
             android:padding="5dp"
             android:src="@mipmap/hospital"
             android:scaleType="fitCenter"
@@ -67,6 +68,7 @@
             android:layout_alignParentBottom="true"
             android:layout_toEndOf="@id/hospitalsIB"
             android:layout_marginLeft="20dp"
+            android:onClick="searchLocation"
             android:src="@mipmap/education"
             android:scaleType="fitCenter" />
         <ImageButton
@@ -79,6 +81,7 @@
             android:paddingVertical="2dp"
             android:layout_marginLeft="20dp"
             android:src="@mipmap/restaurant"
+            android:onClick="searchLocation"
             android:scaleType="fitCenter"
             android:tint="@color/Blue"/>
 
